@@ -8,7 +8,7 @@ Multiform is an advanced Service Portal form widget that separates each section 
 
 	Each form section becomes its own screen:
 	
-	<img src="mf-screen-progression.png">
+	<img src="mf-screen-progression.png" width="400">
 	
 	
 	Screens are able to be navigated through the buttons at the bottom of the form:
