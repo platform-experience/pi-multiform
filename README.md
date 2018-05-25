@@ -29,19 +29,20 @@ Multiform is an advanced Service Portal form widget that separates each section 
 
 - **Support for all native form functionality**
 	
-	All native form functionality is supported, such as
+	For example:
 	
 	- Client Scripts
-	- UI Policy
+	- UI Policies
 	- Read-only fields
 	- Mandatory fields
 	- Form layouts
 	- Reference fields
 	- Dictionary attributes
 
+
 - **Embedded “Child Forms” (related lists)**
 
-	Child forms can be embedded on the top, left, right, or bottom of a screen, or on all screens. Minimum and maximum number of related records can optionally be set.
+	Child forms can be embedded on the top, left, right, or bottom, of a screen, or on all screens. Minimum and maximum numbers of related records can optionally be set.
 
 - **Embedded “Child Widgets”**
 
@@ -49,7 +50,7 @@ Multiform is an advanced Service Portal form widget that separates each section 
 
 - **Easy to style**
 	
-	Simply declare a few SASS variables in your theme/page/portal to override certain styles, such as indicator colour, bottom bar colour, and rounded corners.
+	Simply declare a few SASS variables in your theme/page/portal to override certain styles, such as indicator color, bottom bar color, and rounded corners.
 	
 Screenshots
 -------------------
@@ -149,3 +150,68 @@ There are a number of SASS variables that can be declared in your portal's theme
 | `$pi-mf-attachment-pill-color` | The text color of the individual attachment pills |
 | `$pi-mf-attachment-add-bg` | The background color of the "add attachment" button |
 | `$pi-mf-attachment-add-color` | The color of the + icon in the "add attachment" button |
+
+Widget API
+-------------------
+
+You can use the Multiform Widget API in your widgets to interact with Multiform, including the state of forms, values of fields, and screen navigation. The API is made available via the AngularJS service `PiMfManager`.
+
+This API can be used for widgets embedded as a "Multiform Child Widget" or any other widget on the same page as a Multiform widget.
+
+To use it, add `PiMultiForm` to the "Widget Dependencies" related list of the widget you're building.
+
+Then, inject the `PiMfManager` depencency into your client script function as below:
+
+```
+function(PiMfManager) {
+...
+```
+### Methods
+
+#### `addOnScreenChangeFunc(callback)`
+Add a function to be executed when the screen changes.
+
+Returns: undefined
+
+#### `addOnValueChangeFunc(callback)`
+Add a function to be executed when a value in a form changes.
+
+The function will be supplied with three arguments:
+
+- Parameter 1: String - the field name that changed
+- Parameter 2: String - the new value of the field that changed
+- Parameter 3: Object - an object containing two properties
+	-  `model`: the form model
+	-  `gForm`: the GlideForm
+
+Returns: undefined
+
+#### `nextScreen()`
+Move to the next screen
+
+Returns: undefined
+
+#### `prevScreen()`
+Move to the previous screen
+
+Returns: undefined
+
+#### `goToScreen()`
+Go to a specific screen
+
+Returns: undefined
+
+#### `getScreenCount()`
+Get the number of screens
+
+Returns: Integer
+
+#### `isFirst()`
+Check if we're on the first screen
+
+Returns: boolean
+
+#### `isLast()`
+Check if we're on the last screen
+
+Returns: boolean
