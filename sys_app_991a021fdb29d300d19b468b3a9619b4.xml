@@ -23,15 +23,15 @@
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2018-04-24 00:22:44</sys_created_on>
         <sys_id>991a021fdb29d300d19b468b3a9619b4</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2018-05-24 06:37:41</sys_updated_on>
+        <sys_updated_on>2018-05-25 06:10:20</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <user_role display_value="sp_admin" name="sp_admin">cd640d10d7101200a9addd173e24d4cd</user_role>
         <vendor/>
         <vendor_prefix/>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </sys_app>
     <sys_attachment action="INSERT_OR_UPDATE">
         <average_image_color>#64ddac</average_image_color>
