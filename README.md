@@ -107,6 +107,8 @@ There are two types of Multiform Children. Both extend from the Multiform Child 
 There are also some options unique to each type of child.
 
 #### Child Form
+
+
 | Field              | Description                                                                                                                                               | Mandatory | Default      |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------|
 | Table              | The table that the form will show                                                                                                                         | yes       |              |
@@ -119,6 +121,8 @@ There are also some options unique to each type of child.
 | CSS                | Additional CSS that will be loaded for this instance of the widget                                                                                        | no        |              |
 
 #### Child Widget
+
+
 | Field          | Description                                               | Mandatory | Default |
 |----------------|-----------------------------------------------------------|-----------|---------|
 | Widget         | The widget to be shown                                    | yes       |         |
