@@ -77,52 +77,52 @@ From the platform view, you have full control over the way your form is configur
 ### Multiform Instance
 The Multiform Instance record is the core record, which controls how the actual main form operates and displays.
 
-| Field | Description | Mandatory | Default |
+| Field              | Description                                                                                                                                               | Mandatory | Default      |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------|
-| Table | The table that the form will show | yes |  |
-| Record | Hard-code a record to display. If not defined, the sys_id URL parameter will be used. If this isn't supplied, a new record will be created. | no |  |
-| View | The view that the form will show. The form sections on this view will shown as "screens". | yes |  |
-| Roles | Roles that are required to be able to see this widget | no |  |
-| Progression method | Whether users will be able to freely navigate using the indicators at any time, or only navigate to screens they have visited already. | yes | Full control |
-| Success page | The Service Portal page that the user will be redirected to after form submission. The URL parameters `sys_id` and `table` will be supplied to this page. | yes |  |
-| Order | Used to determine in what position this widget will display, relative to other widget instances in the same container. | no |  |
-| CSS | Additional CSS that will be loaded for this instance of the widget | no |  |
+| Table              | The table that the form will show                                                                                                                         | yes       |              |
+| Record             | Hard-code a record to display. If not defined, the sys_id URL parameter will be used. If this isn't supplied, a new record will be created.               | no        |              |
+| View               | The view that the form will show. The form sections on this view will shown as "screens".                                                                 | yes       |              |
+| Roles              | Roles that are required to be able to see this widget                                                                                                     | no        |              |
+| Progression method | Whether users will be able to freely navigate using the indicators at any time, or only navigate to screens they have visited already.                    | yes       | Full control |
+| Success page       | The Service Portal page that the user will be redirected to after form submission. The URL parameters `sys_id` and `table` will be supplied to this page. | yes       |              |
+| Order              | Used to determine in what position this widget will display, relative to other widget instances in the same container.                                    | no        |              |
+| CSS                | Additional CSS that will be loaded for this instance of the widget                                                                                        | no        |              |
 
 ### Multiform Child
 There are two types of Multiform Children. Both extend from the Multiform Child table, and thus have some common options:
 
-| Field | Description | Mandatory | Default |
+| Field        | Description                                                                   | Mandatory | Default     |
 |--------------|-------------------------------------------------------------------------------|-----------|-------------|
-| Parent | The Multiform Instance that this is a child of | yes |  |
-| Active | Control whether Multiform Child is used | yes | true |
-| Apply to | Apply either to all screens, or a specific section | yes | All screens |
-| Form section | If Apply to is set to Specific section, you can choose the section from here | yes |  |
-| Location | Whether the child appears at the top, bottom, left, or right of the screen | yes | bottom |
-| Align self | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | stretch |
-| Order | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | 0 |
-| Flex grow | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | 0 |
-| Flex shrink | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | 1 |
-| Flex basis | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | auto |
+| Parent       | The Multiform Instance that this is a child of                                | yes       |             |
+| Active       | Control whether Multiform Child is used                                       | yes       | true        |
+| Apply to     | Apply either to all screens, or a specific section                            | yes       | All screens |
+| Form section | If Apply to is set to Specific section, you can choose the section from here  | yes       |             |
+| Location     | Whether the child appears at the top, bottom, left, or right of the screen    | yes       | bottom      |
+| Align self   | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes       | stretch     |
+| Order        | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes       | 0           |
+| Flex grow    | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes       | 0           |
+| Flex shrink  | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes       | 1           |
+| Flex basis   | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes       | auto        |
 
 There are also some options unique to each type of child.
 
 #### Child Form
-| Field | Description | Mandatory | Default |
+| Field              | Description                                                                                                                                               | Mandatory | Default      |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------|
-| Table | The table that the form will show | yes |  |
-| Record | Hard-code a record to display. If not defined, the sys_id URL parameter will be used. If this isn't supplied, a new record will be created. | no |  |
-| View | The view that the form will show. The form sections on this view will shown as "screens". | yes |  |
-| Roles | Roles that are required to be able to see this widget | no |  |
-| Progression method | Whether users will be able to freely navigate using the indicators at any time, or only navigate to screens they have visited already. | yes | Full control |
-| Success page | The Service Portal page that the user will be redirected to after form submission. The URL parameters `sys_id` and `table` will be supplied to this page. | yes |  |
-| Order | Used to determine in what position this widget will display, relative to other widget instances in the same container. | no |  |
-| CSS | Additional CSS that will be loaded for this instance of the widget | no |  |
+| Table              | The table that the form will show                                                                                                                         | yes       |              |
+| Record             | Hard-code a record to display. If not defined, the sys_id URL parameter will be used. If this isn't supplied, a new record will be created.               | no        |              |
+| View               | The view that the form will show. The form sections on this view will shown as "screens".                                                                 | yes       |              |
+| Roles              | Roles that are required to be able to see this widget                                                                                                     | no        |              |
+| Progression method | Whether users will be able to freely navigate using the indicators at any time, or only navigate to screens they have visited already.                    | yes       | Full control |
+| Success page       | The Service Portal page that the user will be redirected to after form submission. The URL parameters `sys_id` and `table` will be supplied to this page. | yes       |              |
+| Order              | Used to determine in what position this widget will display, relative to other widget instances in the same container.                                    | no        |              |
+| CSS                | Additional CSS that will be loaded for this instance of the widget                                                                                        | no        |              |
 
 #### Child Widget
-| Field | Description | Mandatory | Default |
-|---------------------|-------------------------------------------------------------------------------------------------------------|-----------|---------|
-| Widget | The widget to be shown | yes |  |
-| Widget options | Options that will be supplied to the widget when it loads | no |  |
+| Field          | Description                                               | Mandatory | Default |
+|----------------|-----------------------------------------------------------|-----------|---------|
+| Widget         | The widget to be shown                                    | yes       |         |
+| Widget options | Options that will be supplied to the widget when it loads | no        |         |
 
 ### Styling
 There are a number of SASS variables that can be declared in your portal's theme, CSS, or your page's CSS to override the default styling of the widget and make it fit in better with your portal.
