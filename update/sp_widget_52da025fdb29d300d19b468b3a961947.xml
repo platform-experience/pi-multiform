@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function PiMultiFormCtrl ($scope, PiMfManager, $timeout, $location, nowAttachmentHandler, spUtil, PiMfUpload) {
+
+	'use strict';
+
+	var c = this;
+
+	var formState = [];
+
+	c.submit = submit;
+	c.add = add;
+	c.canAdd = canAdd;
+
+	c.next = PiMfManager.nextScreen;
+	c.previous = PiMfManager.prevScreen;
+	c.getCurrentScreenTitle = PiMfManager.getCurrentScreenTitle;
+	c.getCurrentScreen = PiMfManager.getCurrentScreen;
+	c.goToScreen = PiMfManager.goToScreen;
+	c.isLast = PiMfManager.isLast;
+	c.isFirst = PiMfManager.isFirst;
+	c.isChildCompleted = PiMfManager.isChildCompleted;
+	c.childHasMandatory = PiMfManager.childHasMandatory;
+	c.getScreenCount = PiMfManager.getScreenCount;
+	c.addChildModel = PiMfManager.addChildModel;
+	c.getMasterPrimaryAction = PiMfManager.getMasterPrimaryAction;
+
+	c.$onInit = function () {
+
+		/* If there were no errors... */
+		c.loading = c.data.errorMessages.length === 0;
+
+		/* ... and thus we're loading */
+		if (c.loading && c.data.isValid) {
+
+			/* create the payload */
+			var payload = {
+				action: 'get_data',
+				table: c.data.table,
+				sysId: c.data.sysId,
+				view: c.data.view
+			}
+
+			/* and send it to the server */
+			c.server.get(payload).then(function (r) {
+
+				/* Crucial 2 variables used by the widget */
+				c.data.form = r.data.form;
+				c.data.mf = r.data.mf;
+
+				PiMfUpload.init(r.data.form.table, r.data.form._attachmentGUID);
+
+				/* Register an onChange function with PiMfManager to re-evaluate
+				 * which children to show in the various sections based on the
+				 * screen we've just changed to. */
+				PiMfManager.addOnScreenChangeFunc(function () {
+					c.childrenToShow = PiMfManager.getChildrenToShow();
+				});
+			});
+		}
+	};
+
+
+	/** Capture the GlideForm of the master when it's emitted from spModel */
+	$scope.$on('spModel.gForm.initialized', function(e, gFormInstance) {
+
+		if (gFormInstance.getTableName() == c.data.table && gFormInstance.getUniqueValue() == c.data.sysId){
+
+			c.loading = false;
+
+			PiMfManager.init(c.data.form, gFormInstance, c.data.mf);
+
+			/* Setup attachment handler */
+			$scope.attachmentHandler = new nowAttachmentHandler(function appendDone () {
+				$scope.$broadcast("sp.attachments.update", c.data.form._attachmentGUID);
+			}, function appendError () {
+				/* $scope.errorMessages.push(error); */
+				/* spUtil.addErrorMessage(error.msg + error.fileName); */
+			});
+			$scope.$evalAsync(function() {
+				$scope.attachmentHandler.setParams(c.data.form.table, c.data.form._attachmentGUID, 1024 * 1024 * 1024);
+			});
+
+
+		}
+	});
+
+	/** Save all forms on the page */
+	function submit () {
+		PiMfManager.save($scope).then(function (sysId) {
+			$location.search({
+				'id': c.options.success_page,
+				'table': c.options.table,
+				'sys_id': sysId
+			});
+		}, function (incomplete) {
+
+		});
+	}
+
+	function canAdd(child) {
+		if (child.maxChildRecords) {
+			if (child.formModels.length < child.maxChildRecords) {
+				return true;
+			}
+			return false;
+		}
+
+	return true;
+
+		
+	}
+
+	/**
+	 * Add a new child form
+	 * @param {String} child  The SysID of the Multiform Child
+	 */
+	function add (child) {
+		c.server.get({
+			action: 'new_form',
+			childId: child.sysId
+		}).then(function (r) {
+			child.formModels.push(r.data.form);
+		});
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/** Color Declarations **/
+
+$pi-sn2018-green-main: rgb(129, 181, 161); // Acapulco
+$pi-sn2018-green-fade: rgb(176, 225, 206); // Cruise
+$pi-sn2018-green-bright: rgb(100, 221, 172); // Aquamarine
+$pi-mf-dark-green: rgb(36, 53, 56);
+
+/** Overrideable Variables **/
+
+$pi-mf-header-color: $pi-mf-dark-green !default;
+
+$pi-mf-actions-bg: $pi-sn2018-green-fade !default;
+$pi-mf-actions-button: $pi-mf-dark-green !default;
+$pi-mf-actions-button-color: white !default;
+
+$pi-mf-highlight-bg: #f4f4f4; !default;
+$pi-mf-inner-form-bg: #fcfcfc !default;
+$pi-mf-border-radius: 5px !default;
+
+$pi-mf-indicator-bg: $pi-sn2018-green-fade !default;
+$pi-mf-indicator-bg-active: $pi-mf-dark-green !default;
+
+$pi-mf-indicator-color: $pi-mf-dark-green !default;
+$pi-mf-indicator-color-active: white !default;
+
+$pi-mf-formgroup-border-color: #ccc !default;
+
+$pi-mf-attachment-pill-bg: $pi-sn2018-green-fade !default;
+$pi-mf-attachment-pill-color: $pi-mf-dark-green !default;
+
+$pi-mf-attachment-add-bg: white !default;
+$pi-mf-attachment-add-color: $pi-mf-dark-green !default;
+
+/** SCSS Styles **/
+
+// Drag-drop styles
+
+.pimf-drag-drop-overlay {
+  display: none;
+}
+
+.is-dragover .pimf-drag-drop-overlay {
+  display: flex;
+}
+
+.pimf-drag-drop-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0.5) 80%);
+  border-radius: $pi-mf-border-radius;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  color: #ccc;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 10px dashed #ccc;
+}
+
+.pimf-drag-drop-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 21;
+  cursor: default;
+}
+
+
+// Child View Styles
+
+// Error styles
+
+.pimf-error {
+  margin-bottom: 0;
+}
+
+// Main styles
+.pi-multiform {
+  margin: 20px 0;
+  position: relative;
+  background-color: white;
+  padding: 10px 10px;
+  border-radius: $pi-mf-border-radius;
+}
+
+
+// Loading spinner
+.pimf-loading {
+  height: 100%;
+  min-height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  svg {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+// Header elements
+.pi-mfc-head {
+  flex: 1 0 100%;
+  font-size: 30px;
+  padding-left: 10px;
+  display: flex;
+  margin: 10px 0;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  .pi-mfc-title {
+    flex: 1 0 auto;
+    margin-right: 10px;
+    color: $pi-mf-dark-green;
+  }
+}
+
+.pi-mf-head {
+  display: flex;
+  justify-content: right;
+  margin: 10px;
+
+  .pi-mf-title {
+    flex: 1 0 auto;
+    margin-right: 10px;
+    color: $pi-mf-dark-green;
+
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
+
+.pi-mf-mandatory {
+  padding-right: 3px;
+}
+
+.pi-mfa-container {
+  
+  background-color: $pi-mf-highlight-bg;
+  border-radius: $pi-mf-border-radius;
+  min-height: 30px;
+  margin-right: 10px;
+  padding: 0 4px 0 10px;
+  display: flex;
+  font-size: 13px;
+  align-items: center;
+  justify-content: flex-end;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  
+  li {
+    background-color: $pi-mf-attachment-pill-bg;
+    color: $pi-mf-attachment-pill-color;
+    border-radius: $pi-mf-border-radius;
+    padding: 3px 5px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 170px;
+    margin: 3px 0 3px 5px;
+    
+    a, a:hover, a:visited, a:focus {
+      color: $pi-mf-attachment-pill-color;
+    }
+    
+  }
+  
+  li:last-of-type {
+    margin-right: 0;
+  }
+  
+  button {
+    height: 23px;
+    width: 23px;
+    text-align: center;
+    background-color: $pi-mf-attachment-add-bg;
+    border-radius: $pi-mf-border-radius;
+    color: $pi-mf-attachment-add-color;
+    font-size: 13px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    flex: 0 0 23px;
+  }
+}
+
+
+/*
+.pi-mfc-attachments {
+  margin: 0 15px 0 auto;
+  font-size: 15px;
+  padding: 5px;
+  background-color: $pi-mf-highlight-bg;
+  border-radius: $pi-mf-border-radius;
+  height: 30px;
+  line-height: 20px;
+
+  .panel-button {
+    float: none;
+    margin-top: 0;
+  }
+
+  .pi-mf-attachment-manager {
+
+    display: inline-block;
+    font-size: 13px;
+
+    ul {
+      list-style:none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 5px;
+    }
+
+  }
+
+  .panel-button {
+    font-size: inherit;
+  }
+
+  button {
+    margin-left: 0;
+  }
+}
+
+*/
+
+.pi-mf-indicators {
+  display: flex;
+  justify-content: flex-end;
+
+  div {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: $pi-mf-indicator-bg;
+    margin-left: 5px;
+    color: $pi-mf-indicator-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pi-mfi-active {
+    background-color: $pi-mf-indicator-bg-active;
+    color: $pi-mf-indicator-color-active;
+  }
+}
+
+
+// Footer elements
+
+.pi-mf-actions {
+  height: 60px;
+  background-color: $pi-mf-actions-bg;
+  border-radius: $pi-mf-border-radius;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: $pi-mf-actions-color;
+  flex: 1 0 auto;
+  justify-content: space-between;
+  margin: 10px;
+
+  .pi-mfa-secondary, .pi-mfa-primary {
+    height: 100%;
+
+    button {
+      height: 100%;
+      padding: 0 20px;
+      border: 0;
+      border-radius: $pi-mf-border-radius;
+      background-color: transparent;
+    }
+  }
+
+  .pi-mfa-secondary {
+    button {
+      border: 1px solid $pi-mf-actions-button;
+      color: $pi-mf-actions-button;
+
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .pi-mfa-primary {
+
+
+    button {
+      background-color: $pi-mf-actions-button;
+      color: $pi-mf-actions-button-color;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      i {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+
+// Body styles
+
+.pi-mf-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pi-mf-container .pi-mf-container {
+  display: block;
+}
+
+
+.pi-mf-flexrow {
+  display: flex;
+  margin: 0 10px;
+}
+
+.pi-mf-b-top, .pi-mf-b-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 10px;
+}
+
+.pi-mf-mainform {
+  flex: 1 1 auto;
+
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}
+
+.pi-mf-mainform.container-fluid {
+
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+
+.pi-mfc-body {
+  flex: 1 1 auto;
+  position: relative;
+
+  .h4 {
+    display: none;
+  }
+}
+
+
+
+// Inner form styles
+
+.pi-mff-body {
+  margin-top: 10px;
+}
+
+.pi-mff-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: $pi-mf-dark-green;
+}
+
+
+
+
+
+// Inner forms
+
+.pi-mf-forms {
+  border: 1px solid $pi-mf-formgroup-border-color;
+  border-radius: $pi-mf-border-radius;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+
+.pi-mff-header {
+  width: 100%;
+  border-radius: $pi-mf-border-radius $pi-mf-border-radius 0 0;
+  padding: 10px;
+  background-color: $pi-mf-highlight-bg;
+  font-weight: bold;
+
+  i {
+    float: right;
+  }
+}
+
+.pi-mff-attachments {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  display: none;
+}
+
+
+.pi-mff-actions {
+  padding: 4px;
+
+  button {
+    background-color: white;
+    border: 1px solid $pi-mf-formgroup-border-color;
+    border-radius: $pi-mf-border-radius;
+    padding: 5px 20px;
+  }
+}
+
+.pi-mff-container {
+  border-top: 1px solid rgb(204, 204, 204);
+}
+
+
+// Inner form
+
+.pi-mf-form {
+  border: 1px solid $pi-mf-highlight-bg;
+  margin-bottom: 10px;
+  background-color: $pi-mf-inner-form-bg;
+  border-radius: $pi-mf-border-radius $pi-mf-border-radius 0 0;
+
+  legend.h4 {
+    display: none;
+  }
+}</css>
+        <data_table>x_pisn_multiform_sp_instance</data_table>
+        <demo_data/>
+        <description>Form widget that separates each section of the form onto sequential, numbered screens for improved UX.
+
+Additionally, it offers drag-and-drop file upload, and child elements (e.g. forms, widgets) to be embedded on each screen.</description>
+        <docs/>
+        <field_list>instructions</field_list>
+        <has_preview>false</has_preview>
+        <id>pi-multiform</id>
+        <internal>false</internal>
+        <link><![CDATA[function PiMultiFormLink (scope, elem, attrs) {
+	
+	'use strict';
+	
+	var formState = [];
+	
+	scope.toggleIcon = toggleIcon;
+	scope.toggle = toggle;
+	scope.makeArray = makeArray;
+	scope.isExpanded = isExpanded;
+	
+	/**
+	 * Different class depending on the state of expansion
+	 * @param  {Boolean} state  State of expansion
+	 * @return {Object}         Classes to attach
+	 */
+	function toggleIcon (state) {
+		return {
+			'fa-chevron-down': !state,
+			'fa-chevron-up': state
+		}
+	}
+	
+	/**
+	 * Toggle the expansion state of a child form
+	 * @param  {[type]} child [description]
+	 * @param  {[type]} idx   [description]
+	 * @return {[type]}       [description]
+	 */
+	function toggle (child, idx) {
+		formState[child.sysId] = formState[child.sysId] || [];
+		formState[child.sysId][idx] = !formState[child.sysId][idx];
+	}
+	
+	
+	/**
+	 * Check whether a child form is expanded
+	 * @param  {[type]}  child [description]
+	 * @param  {[type]}  idx   [description]
+	 * @return {Boolean}       [description]
+	 */
+	function isExpanded (child, idx) {
+		formState[child.sysId] = formState[child.sysId] || [];
+		return formState[child.sysId][idx];
+	}
+
+	/**
+	 * Dumb function to make an array containing a certain number of elements
+	 * @param  {Integer} count  Number of elements in the new array
+	 * @return {Array}          A new array containing X elements
+	 */
+	function makeArray (count) {
+		return new Array(count);
+	}
+	
+	
+	
+	
+	
+	
+	
+}]]></link>
+        <name>Multiform</name>
+        <option_schema>[]</option_schema>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <script><![CDATA[(function($sp, input, data, FormModel, options, Multiform, gs, GlideRecord) {
+
+	'use strict';
+
+	if (input && input.action === 'new_form') {
+
+		data.form = new FormModel(input.childId);
+
+		return;
+
+	} else if (input && input.action === 'get_data') {
+
+		data.view = options.view;
+		data.sysId = options.record || input.sysId || '-1';
+		data.table = options.table;
+
+		data.form = $sp.getForm(data.table, data.sysId, '', data.view);
+		data.mf = new Multiform($sp.getDisplayValue('sys_id'));
+
+		return;
+
+	} else {
+		
+		data.isValid = true;
+		
+		data.table = options.table;
+		data.sysId = options.record || $sp.getParameter('sys_id') || '-1';
+		data.view = options.view;
+		data.maxAttachmentSize = parseInt(gs.getProperty("com.glide.attachment.max_size", 1024));
+		
+		var rec = new GlideRecord(data.table);
+		rec.get(data.sysId);
+		
+		data.errorMessages = [];
+
+		if (!data.sysId) {
+			data.isValid = false;
+			data.errorMessages.push(gs.getMessage("You provided an invalid SysID"));
+		}
+		
+		if (!data.view) {
+			data.isValid = false;
+			data.errorMessages.push(gs.getMessage("No view is set in the widget instance's configuration"));
+		}
+
+		if (!data.table) {
+			data.isValid = false;
+			data.errorMessages.push(gs.getMessage("No table is set in the widget instance's configuration"));
+		}
+		
+		if (!data.isValid) {
+			return;
+		}
+		
+		if (!rec.isValid() && data.sysId !== '-1') {
+			data.isValid = false;
+			data.errorMessages.push(gs.getMessage("That record doesn't exist"));
+		}
+		
+		if (data.sysId === '-1' && !rec.canCreate()) {
+			data.isValid = false;
+			data.errorMessages.push(gs.getMessage("You can't create records in this table"));
+		}
+		
+		if (!data.isValid) {
+			return;
+		}
+		
+		data.table = rec.getRecordClassName();
+		data.canWrite = rec.canWrite();
+		
+		var hasRecordAccess = data.sys_id == "-1" ? rec.canCreate() : data.canWrite;
+		data.canAttach = hasRecordAccess && gs.hasRole(gs.getProperty('glide.attachment.role'));
+	}
+
+})($sp, input, data, FormModel, options, Multiform, gs, GlideRecord);]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-04-24 00:26:03</sys_created_on>
+        <sys_id>52da025fdb29d300d19b468b3a961947</sys_id>
+        <sys_mod_count>1005</sys_mod_count>
+        <sys_name>Multiform</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sp_widget_52da025fdb29d300d19b468b3a961947</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-24 06:28:49</sys_updated_on>
+        <template><![CDATA[<div class="pi-multiform" pi-mf-drag-drop-upload>
+
+  <div class="pimf-drag-drop-overlay">
+    <div class="pimf-drag-drop-mask"></div>
+    <div>
+      <i class="fa fa-upload" aria-hidden="true"></i><br/>
+      Upload
+    </div>
+  </div>
+
+  <!-- Loading spinner -->
+  <div class="pimf-loading" ng-if="c.loading">
+    <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" stroke="#000">
+      <g fill="none" fill-rule="evenodd" stroke-width="2">
+        <circle cx="22" cy="22" r="1">
+          <animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="22" cy="22" r="1">
+          <animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Form loading Errors -->
+  <div class="pimf-error alert alert-danger" ng-if="::c.data.errorMessages.length > 0">
+    <strong>${There were errors loading this page}</strong>
+    <ul>
+      <li ng-repeat="error in ::c.data.errorMessages">{{::error}}</li>
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <div ng-if="c.data.errorMessages.length === 0" class="pimf-content" ng-show="!c.loading">
+
+    <div class="pi-mf-head">
+
+      <div class="pi-mf-title">
+        <h1>{{c.getCurrentScreenTitle()}}</h1>
+      </div>
+
+      <div class="pi-mf-attachments">
+        <div class="pi-mfa-container">
+          <div class="pi-mfa-label">Attachments</div>
+          <pi-mf-attachment-manager table="::c.data.form.table"
+                                    sys-id="::c.data.form._attachmentGUID"
+                                    omit-edit="false"></pi-mf-attachment-manager>
+          <button class="pi-mfa-add" pi-mf-button-upload>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Indicators -->
+      <div class="pi-mf-indicators">
+        <div ng-repeat="i in makeArray(c.getScreenCount()) track by $index"
+             ng-class="{'pi-mfi-active': c.getCurrentScreen() === $index}"
+             ng-click="c.goToScreen($index)">{{$index + 1}}</div>
+      </div>
+
+    </div>
+
+    <div class="pi-mf-mainbody">
+
+      <!-- Top children -->
+      <div class="pi-mf-b-top">
+        <div ng-repeat="child in c.childrenToShow.top"
+             ng-style="{flex: child.flexGrow + ' ' + child.flexShrink + ' ' + child.flexBasis}"
+             ng-include="'pi-mf-child-item'">
+        </div>
+      </div>
+
+      <div class="pi-mf-flexrow">
+
+        <!-- Left children -->
+        <div ng-repeat="child in c.childrenToShow.left"
+             ng-style="{flex: child.flexGrow + ' ' + child.flexShrink + ' ' + child.flexBasis}"
+             ng-include="'pi-mf-child-item'">
+        </div>
+
+
+        <!-- Main Form -->
+        <div class="pi-mf-mainform container-fluid">
+          <sp-model form-model="::c.data.form"
+                    mandatory="true"
+                    template-url="pi-multiform"
+                    ng-if="::c.data.form"></sp-model>
+        </div>
+
+        <!-- Right children -->
+        <div ng-repeat="child in c.childrenToShow.right"
+             ng-style="{flex: child.flexGrow + ' ' + child.flexShrink + ' ' + child.flexBasis}"
+             ng-include="'pi-mf-child-item'">
+        </div>
+
+      </div>
+
+
+      <!-- Bottom children -->
+      <div class="pi-mf-b-bottom">
+        <div ng-repeat="child in c.childrenToShow.bottom"
+             ng-style="{flex: child.flexGrow + ' ' + child.flexShrink + ' ' + child.flexBasis}"
+             ng-include="'pi-mf-child-item'">
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Actions -->
+    <div class="pi-mf-actions">
+
+      <!-- Left side (secondary) -->
+      <div class="pi-mfa-secondary">
+        <button ng-click="c.previous()" ng-if="!c.isFirst()">
+          <i class="fa fa-angle-left" aria-hidden="true"></i> ${Previous}
+        </button>
+      </div>
+
+      <!-- Right side (primary) -->
+      <div class="pi-mfa-primary">
+        <button ng-click="c.submit()" ng-if="c.isLast()">{{::c.getMasterPrimaryAction().name}}</button>
+        <button ng-click="c.next()" ng-if="!c.isLast()">
+          ${Next} <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<now-message key="Please complete all mandatory fields before submission" value="${Please complete all mandatory fields before submission}"></now-message>
+<now-message key="This field must be completed" value="This field must be completed"></now-message>]]></template>
+    </sp_widget>
+</record_update>

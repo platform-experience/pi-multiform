@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_dependency_js_include">
+    <m2m_sp_dependency_js_include action="INSERT_OR_UPDATE">
+        <order>100</order>
+        <sp_dependency display_value="PiMfLib">85003598dbb55700b85e8a8b3a9619b8</sp_dependency>
+        <sp_js_include display_value="Service.PiMfManager">30dd2476db06d340d19b468b3a9619dc</sp_js_include>
+        <sys_class_name>m2m_sp_dependency_js_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-17 00:54:30</sys_created_on>
+        <sys_id>83eda476db06d340d19b468b3a961926</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>PiMultiForm.Service.PiMfManager</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>m2m_sp_dependency_js_include_83eda476db06d340d19b468b3a961926</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-17 00:54:30</sys_updated_on>
+    </m2m_sp_dependency_js_include>
+</record_update>

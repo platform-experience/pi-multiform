@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <global>false</global>
+        <name>x_pisn_multiform.Directive.piMfCapture</name>
+        <script><![CDATA[PiMf.directive('piMfCapture', function piMfCapture(PiMfManager) {
+
+	'use strict';
+
+	return {
+		link: link
+	};
+
+	function link (scope, elem, attrs) {
+
+		/** This event will be emitted by spModel when it's finished loading */
+		scope.$on('spModel.gForm.initialized', function(e, gFormInstance) {
+
+			/** Register the child form, and all it's items */
+			PiMfManager.addChild(attrs.piMfcChild,
+				attrs.piMfcIndex,
+				scope.formModel,
+				gFormInstance,
+				scope.child.referenceToParent);
+		});
+	}
+});]]></script>
+        <script_name>Directive.piMfCapture</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-17 00:50:25</sys_created_on>
+        <sys_id>1ffc6836db06d340d19b468b3a96194e</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>x_pisn_multiform.Directive.piMfCapture</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sys_ui_script_1ffc6836db06d340d19b468b3a96194e</sys_update_name>
+        <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+        <sys_updated_on>2018-05-23 07:09:58</sys_updated_on>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

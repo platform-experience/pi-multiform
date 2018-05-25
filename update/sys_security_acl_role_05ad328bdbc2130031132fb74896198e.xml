@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-18 06:00:54</sys_created_on>
+        <sys_id>05ad328bdbc2130031132fb74896198e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_pisn_multiform_child.sp_admin</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_security_acl display_value="x_pisn_multiform_child">c9ad328bdbc2130031132fb74896198b</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_05ad328bdbc2130031132fb74896198e</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-18 06:00:54</sys_updated_on>
+        <sys_user_role display_value="sp_admin" name="sp_admin">cd640d10d7101200a9addd173e24d4cd</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

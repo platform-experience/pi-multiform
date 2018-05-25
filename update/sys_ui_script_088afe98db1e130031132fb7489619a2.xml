@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <global>false</global>
+        <name>x_pisn_multiform.Service.PiMfUpload</name>
+        <script><![CDATA[PiMf.service('PiMfUpload', function piMfUpload ($http, $q, $window) {
+	
+	'use strict';
+
+	var attachmentGuid;
+	var tableName;
+	
+	return {
+		upload: upload,
+		init: init
+	};
+
+	function init(table, sysId) {
+		attachmentGuid = sysId;
+		tableName = table;
+	}
+
+	function upload(files) {
+
+		return $q(function (success, failure) {
+
+			Array.prototype.forEach.call(files, function(file) {
+
+				var fd = new $window.FormData();
+				fd.append('attachments_modified', true);
+				fd.append('sysparm_table', tableName);
+				fd.append('sysparm_sys_id', attachmentGuid);
+				fd.append('sysparm_nostack', 'yes');
+				fd.append('sysparm_encryption_context', '');
+				fd.append('sysparm_ck', $window.g_ck);
+				fd.append('attachFile', file);
+
+				$http.post('/angular.do', fd, {
+					transformRequest: $window.angular.identity,
+					params: {
+						'sysparm_type': 'ngk_attachments',
+						'table': tableName,
+						'sys_id': attachmentGuid,
+						'action': 'add'
+					},
+					headers: {
+						'X-UserToken' : $window.g_ck,
+						'Content-Type': undefined
+					}
+				}).then(function (response) {
+					success(response);
+				});
+
+			});
+
+		});
+	}
+});]]></script>
+        <script_name>Service.PiMfUpload</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-22 03:00:53</sys_created_on>
+        <sys_id>088afe98db1e130031132fb7489619a2</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>x_pisn_multiform.Service.PiMfUpload</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sys_ui_script_088afe98db1e130031132fb7489619a2</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-22 04:09:14</sys_updated_on>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

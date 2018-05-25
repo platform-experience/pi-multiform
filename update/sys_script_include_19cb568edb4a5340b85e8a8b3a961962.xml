@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_pisn_multiform.Multiform</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Multiform</name>
+        <script><![CDATA[var Multiform = Class.create();
+
+Multiform.prototype = Object.extendsObject(MfGrObject, {
+	
+	tableName: 'x_pisn_multiform_sp_instance',
+	
+	getGlobal: function getGlobal() {
+		return new Section(this.getSysId());
+	},
+	
+	getSections: function getSections() {
+		
+		var gr = new GlideRecord('sys_ui_section');
+		gr.addQuery('view', this._gr.getValue('view'));
+		gr.addQuery('name', this._gr.getValue('table'));
+		gr.query();
+		
+		var sections = {};
+		
+		while (gr.next()) {
+			sections[gr.getUniqueValue()] = new Section(this.getSysId(), gr.getUniqueValue());
+		}
+		
+		return sections;
+		
+	},
+	
+	
+	toJSON: function toJSON () {
+		return {
+			global: this.getGlobal(),
+			sections: this.getSections()
+		};
+	},
+
+    type: 'Multiform'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-15 00:59:16</sys_created_on>
+        <sys_id>19cb568edb4a5340b85e8a8b3a961962</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Multiform</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sys_script_include_19cb568edb4a5340b85e8a8b3a961962</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-15 02:33:51</sys_updated_on>
+    </sys_script_include>
+</record_update>

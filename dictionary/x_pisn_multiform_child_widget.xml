@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="update_synch=true" extends="x_pisn_multiform_child" label="Child Widget" max_length="40" name="x_pisn_multiform_child_widget" type="collection">
+        <element label="Widget" mandatory="true" max_length="32" name="widget" reference="sp_widget" type="reference"/>
+        <element label="Widget options" max_length="4000" name="widget_options" type="json"/>
+        <index name="index">
+            <element name="widget"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_pisn_multiform_sp_instance">
+    <x_pisn_multiform_sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <instructions><![CDATA[Please use the &#34;Open in platform&#34; link from the hamburger menu on this dialog to configure this widget.]]></instructions>
+        <order>2</order>
+        <progression_method>full</progression_method>
+        <record/>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">4aeace1fdb29d300d19b468b3a9619d5</sp_column>
+        <sp_widget display_value="Multiform">52da025fdb29d300d19b468b3a961947</sp_widget>
+        <success_page display_value="ticket">ticket</success_page>
+        <sys_class_name>x_pisn_multiform_sp_instance</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-02 05:46:31</sys_created_on>
+        <sys_id>a6e06c06dbb15b00d19b468b3a96198b</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>x_pisn_multiform_sp_instance_a6e06c06dbb15b00d19b468b3a96198b</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-18 06:51:37</sys_updated_on>
+        <table>problem</table>
+        <title/>
+        <url/>
+        <view display_value="Default view" name="NULL">Default view</view>
+        <widget_parameters/>
+    </x_pisn_multiform_sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=a6e06c06dbb15b00d19b468b3a96198b"/>
+</record_update>

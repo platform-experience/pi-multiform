@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>pi-mf-attachment-manager</id>
+        <sp_widget display_value="Multiform">52da025fdb29d300d19b468b3a961947</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-15 06:36:43</sys_created_on>
+        <sys_id>c6092f4adb8e5340b85e8a8b3a961960</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>pi-mf-attachment-manager</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sp_ng_template_c6092f4adb8e5340b85e8a8b3a961960</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-21 05:36:58</sys_updated_on>
+        <template><![CDATA[<ul>
+  <li class="attached-file" ng-repeat="attachment in attachments">
+    <a ng-href="{{getAttachmentURL(attachment)}}" target="_blank">
+      <span class="fa {{getIcon(attachment.content_type, attachment.ext)}}"></span>
+      {{attachment.file_name}}</a>
+  </li>
+</ul>]]></template>
+    </sp_ng_template>
+</record_update>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="update_synch=true" extends="x_pisn_multiform_child" label="Child Form" max_length="40" name="x_pisn_multiform_child_form" type="collection">
+        <element label="Description" max_length="8000" name="description" type="translated_html"/>
+        <element label="Max child records" max_length="40" name="max_child_records" type="integer"/>
+        <element label="Min child records" max_length="40" name="min_child_records" type="integer"/>
+        <element attributes="types=reference" dependent="table" dependent_on_field="table" label="Reference to parent" max_length="80" name="reference_to_parent" type="field_name" use_dependent_field="true"/>
+        <element attributes="allow_public" label="Table" max_length="80" name="table" type="table_name"/>
+        <element label="Title" mandatory="true" max_length="40" name="title" type="translated_text"/>
+        <element label="View" mandatory="true" max_length="32" name="view" reference="sys_ui_view" type="reference"/>
+        <index name="index">
+            <element name="view"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_pisn_multiform.Section</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Section</name>
+        <script><![CDATA[var Section = Class.create();
+
+Section.prototype = {
+	
+    initialize: function(mfSysId, formSectionId) {
+		this._isGlobal = typeof formSectionId === 'undefined';
+		
+		this._mfSysId = mfSysId;
+		this._formSectionId = formSectionId;
+    },
+
+	toJSON: function toJSON () {
+		
+		var top = new Location(this._mfSysId, 'top', this._formSectionId);
+		var bottom = new Location(this._mfSysId, 'bottom', this._formSectionId);
+		var left = new Location(this._mfSysId, 'left', this._formSectionId);
+		var right = new Location(this._mfSysId, 'right', this._formSectionId);
+		
+		var r = {};
+		
+		if (top.length > 0) {
+			r.top = top;
+		}
+		
+		if (bottom.length > 0) {
+			r.bottom = bottom;
+		}
+		
+		if (left.length > 0) {
+			r.left = left;
+		}
+		
+		if (right.length > 0) {
+			r.right = right;
+		}
+		
+		return r;
+	},
+
+    type: 'Section'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-15 01:13:24</sys_created_on>
+        <sys_id>570f5ecedb4a5340b85e8a8b3a9619e8</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Section</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sys_script_include_570f5ecedb4a5340b85e8a8b3a9619e8</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-15 02:36:30</sys_updated_on>
+    </sys_script_include>
+</record_update>

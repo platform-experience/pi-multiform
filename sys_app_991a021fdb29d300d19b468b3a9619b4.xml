@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_app">
+    <sys_app action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <enforce_license>log</enforce_license>
+        <js_level>helsinki_es5</js_level>
+        <licensable>true</licensable>
+        <license_model>none</license_model>
+        <logo/>
+        <menu/>
+        <name>Multiform</name>
+        <private>false</private>
+        <restrict_table_access>false</restrict_table_access>
+        <runtime_access_tracking/>
+        <scope>x_pisn_multiform</scope>
+        <scoped_administration>false</scoped_administration>
+        <short_description>Form widget that separates each section of the form onto sequential, numbered screens for improved UX.  Also, drag-drop upload, and embedded forms and widgets.</short_description>
+        <source>x_pisn_multiform</source>
+        <store_correlation_id>REPOAPP0000001083</store_correlation_id>
+        <store_url/>
+        <sys_class_name>sys_app</sys_class_name>
+        <sys_code/>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-04-24 00:22:44</sys_created_on>
+        <sys_id>991a021fdb29d300d19b468b3a9619b4</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-24 06:37:41</sys_updated_on>
+        <template/>
+        <trackable>true</trackable>
+        <user_role display_value="sp_admin" name="sp_admin">cd640d10d7101200a9addd173e24d4cd</user_role>
+        <vendor/>
+        <vendor_prefix/>
+        <version>1.0.0</version>
+    </sys_app>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#64ddac</average_image_color>
+        <chunk_size_bytes>734003</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>logo</file_name>
+        <image_height>783</image_height>
+        <image_width>783</image_width>
+        <size_bytes>13783</size_bytes>
+        <size_compressed>892</size_compressed>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2018-05-23 06:32:48</sys_created_on>
+        <sys_id>41e4bcbcdb96d300687c26b38a9619e3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+        <sys_updated_on>2018-05-23 06:32:48</sys_updated_on>
+        <table_name>ZZ_YYsys_app</table_name>
+        <table_sys_id>991a021fdb29d300d19b468b3a9619b4</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="logo" sys_id="41e4bcbcdb96d300687c26b38a9619e3">41e4bcbcdb96d300687c26b38a9619e3</sys_attachment>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2018-05-23 06:32:48</sys_created_on>
+        <sys_id>81e4bcbcdb96d300687c26b38a9619e3</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>7dlvSBNxGAfwu3nZdKydzSJM5qmkEYS+0MKY7crVGtlS8w+EbYte5BB0tMBbabtZtBnVlMikIov+orD+EUlZmyUVJKUvTOzvppUoRLtGmalbJ7b99iJ614voGRxjv9/zfHj25V78uGso0KjEsQmxGIaJ1RuURRgWJZm5hNH8yrHXoy/4L9xUpFqLOZ8ljmJYdpNauaaYwT8NdjVUjIgPevONSQYquXHFDfXcwQ5HY1Hn+APRZXGNfv9kZv4LgWhqcYxJkVtTM2/nbpWjNMPPvQvW+SfSg0KSolkMF7hSfK2WwORwmXbvOtZdaFUkvXn1kgjtEkJ5rN2mymyVhn6THcsomVP79i2qkc3pfpja8jwm3FO+gJSUZVRXC8I1DsGQN65nBPU4ebb9xO2VeKjGqsI5n/CjCfWU8Wz/01ensFCN+zzLMIQ/B/W08+zYh0+b2FCNp5CWy+snTqOeEpwzfv3yLS00PuVbSslkXbUa1NPGMh17zHvRX2TiSYlDvzo93GMsoeXl9zrvxUAsEAvEArFALBALxPK3YvH1D4+vDgqIQGDAVYe7LuqaZrbuE9bP+wJe/8bvudNHXds8OsvE48fVwZcniDbWJS+WbI44tWQJhs5ZuZMYmoQPpc2WjoYnEnCu182gyViaD6X/oRRHNUdYpkLfiSajz/KhjHkbItj1tDwrU4vCpwrmdOd99Skj2FRKlrDoKgqfvMIPt4dJiWDjSIn48EDE/MU4V5Arj0Nsr9Bui35UGTE/f69ckZ1BLWQF0Z0XNZwdMT9/r0AsEAvEArFALBALxPL/xlJbkpQbRxm3eSZ1++5o9BZ+XSmqnR6+3don2lpV4tbJSs1idMxs5DPZVWWQIpM/yW0/PmBECzmCoeSR5hXJ4Z5r/KiAAAIIIIAAAggggAACCCCAAAIIIID8CfFdX/XGp1B67rZavk/lBXYEDQfc466p+Ou2JbNdVjNuMbeszG761UKz9AWWscvbL4ZUQtgjstvMW6TocZYy1m57cnProXCPu5NlAAEEEEAAAQQQQH6LuFXvS5tTaE/N7Jsi16RtmprdJZd7MiR9I7cSQ8WYNQfnMnca5qOFCpwj67RP0TuyFikpMTWnoQX7QhIQQAABBBBAAAHkn0OswaiTjxJ/VB64pMD4j3qdRulcq6//CVtYQfPXNQAA</data>
+        <length>1176</length>
+        <position>1</position>
+        <sys_attachment display_value="logo" sys_id="41e4bcbcdb96d300687c26b38a9619e3">41e4bcbcdb96d300687c26b38a9619e3</sys_attachment>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2018-05-23 06:32:48</sys_created_on>
+        <sys_id>05e4bcbcdb96d300687c26b38a9619e3</sys_id>
+    </sys_attachment_doc>
+</record_update>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <conditions table="x_pisn_multiform_child">apply_to=single_section^EQ<item endquery="false" field="apply_to" goto="false" newquery="false" operator="=" or="false" value="single_section"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <global>true</global>
+        <inherit>true</inherit>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>false</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+
+}]]></script_true>
+        <set_values/>
+        <short_description>Show and require 'Form section' if 'Apply to' is 'Single section'</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2018-05-23 02:44:52</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3d60c874db16d300687c26b38a96194b</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Show and require 'Form section' if 'Apply to' is 'Single section'</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sys_ui_policy_3d60c874db16d300687c26b38a96194b</sys_update_name>
+        <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+        <sys_updated_on>2018-05-23 02:55:58</sys_updated_on>
+        <table>x_pisn_multiform_child</table>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_ui_policy>
+</record_update>

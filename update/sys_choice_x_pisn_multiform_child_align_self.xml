@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="align_self" table="x_pisn_multiform_child" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>align_self</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>baseline</label>
+            <language>en</language>
+            <name>x_pisn_multiform_child</name>
+            <sequence/>
+            <sys_created_by>dylan.lindgren</sys_created_by>
+            <sys_created_on>2018-05-18 06:20:29</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ed12cf4fdbc2130031132fb748961909</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>dylan.lindgren</sys_updated_by>
+            <sys_updated_on>2018-05-18 06:20:47</sys_updated_on>
+            <value>baseline</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>align_self</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>center</label>
+            <language>en</language>
+            <name>x_pisn_multiform_child</name>
+            <sequence/>
+            <sys_created_by>dylan.lindgren</sys_created_by>
+            <sys_created_on>2018-05-18 06:20:32</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fb12c38fdbc2130031132fb748961942</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>dylan.lindgren</sys_updated_by>
+            <sys_updated_on>2018-05-18 06:20:43</sys_updated_on>
+            <value>center</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>align_self</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>flex-end</label>
+            <language>en</language>
+            <name>x_pisn_multiform_child</name>
+            <sequence/>
+            <sys_created_by>dylan.lindgren</sys_created_by>
+            <sys_created_on>2018-05-18 06:20:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2822838fdbc2130031132fb748961931</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>dylan.lindgren</sys_updated_by>
+            <sys_updated_on>2018-05-18 06:20:39</sys_updated_on>
+            <value>flex-end</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>align_self</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>flex-start</label>
+            <language>en</language>
+            <name>x_pisn_multiform_child</name>
+            <sequence/>
+            <sys_created_by>dylan.lindgren</sys_created_by>
+            <sys_created_on>2018-05-18 06:20:50</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3922438fdbc2130031132fb74896197d</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>dylan.lindgren</sys_updated_by>
+            <sys_updated_on>2018-05-18 06:20:55</sys_updated_on>
+            <value>flex-start</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>align_self</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>stretch</label>
+            <language>en</language>
+            <name>x_pisn_multiform_child</name>
+            <sequence/>
+            <sys_created_by>dylan.lindgren</sys_created_by>
+            <sys_created_on>2018-05-18 06:20:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c132438fdbc2130031132fb748961938</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>dylan.lindgren</sys_updated_by>
+            <sys_updated_on>2018-05-18 06:21:02</sys_updated_on>
+            <value>stretch</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>align_self</element>
+            <name>x_pisn_multiform_child</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>dylan.lindgren</sys_created_by>
+            <sys_created_on>2018-05-18 06:20:29</sys_created_on>
+            <sys_id>cf6a3d55db121300cd90dd30cf96196e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>align_self</sys_name>
+            <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+            <sys_update_name>sys_choice_x_pisn_multiform_child_align_self</sys_update_name>
+            <sys_updated_by>dylan.lindgren</sys_updated_by>
+            <sys_updated_on>2018-05-18 06:20:29</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

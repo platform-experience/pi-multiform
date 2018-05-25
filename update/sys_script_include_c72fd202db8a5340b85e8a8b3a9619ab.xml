@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_pisn_multiform.ChildForm</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>ChildForm</name>
+        <script><![CDATA[var ChildForm = Class.create();
+
+ChildForm.prototype = Object.extendsObject(Child, {
+
+	tableName: 'x_pisn_multiform_child_form',
+
+	getTitle: function getTitle () {
+		return this._gr.getValue('title');
+	},
+
+	getDescription: function getDescription () {
+		return this._gr.getValue('description');
+	},
+
+	getTableName: function getTableName () {
+		return this._gr.getValue('table');
+	},
+
+	getParentTable: function getParentTable() {
+		var parent = this._gr.parent.getRefRecord();
+		return parent.getValue('table');
+	},
+
+	getReferenceToParent: function getReferenceToParent() {
+		return this._gr.getValue('reference_to_parent');
+	},
+
+	getReferenceToParentDisplay: function getReferenceToParentDisplay () {
+		return this._gr.getDisplayValue('reference_to_parent');
+	},
+
+	getView: function getView () {
+		return this._gr.getValue('view');
+	},
+	
+	getMinChildRecords: function getMinChildRecords () {
+		return parseInt(this._gr.getValue('min_child_records'));
+	},
+	
+	getMaxChildRecords: function getMaxChildRecords () {
+		return parseInt(this._gr.getValue('max_child_records'));
+	},
+
+	getChildFormModels: function getChildFormModel () {
+
+		var formModels = [];
+		var sysId = $sp.getParameter('sys_id');
+
+		if (sysId) {
+
+			var gr = new GlideRecord(this.getTableName());
+			gr.addQuery(this.getReferenceToParent(), sysId);
+			gr.query();
+
+			while (gr.next()) {
+
+				var fm = new FormModel(this.getTableName(),
+									   gr.getUniqueValue(),
+									   this.getView(),
+									   this.getReferenceToParent(),
+									   this.getReferenceToParentDisplay());
+
+				formModels.push(fm);
+			}
+		}
+		
+		var diff = this.getMinChildRecords() - formModels.length;
+		
+		for (i = 0; i < diff; i++) {
+			formModels.push(new FormModel(this.getTableName(),
+										  '-1',
+										  this.getView(),
+										  this.getReferenceToParent(),
+										  this.getReferenceToParentDisplay()));
+		}
+
+		return formModels;
+	},
+
+	toJSON: function toJSON () {
+
+		var parentJSON = Child.prototype.toJSON.call(this);
+
+		var json = {
+			title: this.getTitle(),
+			description: this.getDescription(),
+			tableName: this.getTableName(),
+			referenceToParent: this.getReferenceToParent(),
+			formModels: this.getChildFormModels(),
+			parentTable: this.getParentTable(),
+			minChildRecords: this.getMinChildRecords(),
+			maxChildRecords: this.getMaxChildRecords()
+		};
+
+		Object.keys(parentJSON).forEach(function(key) { json[key] = parentJSON[key]; });
+
+		return json;
+
+	},
+
+	type: 'ChildForm'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-15 01:13:57</sys_created_on>
+        <sys_id>c72fd202db8a5340b85e8a8b3a9619ab</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>ChildForm</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sys_script_include_c72fd202db8a5340b85e8a8b3a9619ab</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-24 05:41:29</sys_updated_on>
+    </sys_script_include>
+</record_update>

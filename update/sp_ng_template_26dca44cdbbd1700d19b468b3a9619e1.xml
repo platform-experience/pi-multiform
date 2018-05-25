@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>pi-multiform</id>
+        <sp_widget display_value="Multiform">52da025fdb29d300d19b468b3a961947</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-04-26 01:31:01</sys_created_on>
+        <sys_id>26dca44cdbbd1700d19b468b3a9619e1</sys_id>
+        <sys_mod_count>148</sys_mod_count>
+        <sys_name>pi-multiform</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sp_ng_template_26dca44cdbbd1700d19b468b3a9619e1</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-16 06:58:58</sys_updated_on>
+        <template><![CDATA[<div pi-multi-form>
+  
+  <fieldset class="pi-mf-section">
+    
+    <div ng-repeat="container in getSelectedContainer()" class="pi-mf-container">
+      
+      <div class="pi-mfc-body container-fluid">
+        <sp-variable-layout ng-init="containers=[container]"></sp-variable-layout>
+      </div>
+      
+    </div>
+    
+  </fieldset>
+  
+  <div ng-init="execItemScripts()"></div>
+  
+</div>]]></template>
+    </sp_ng_template>
+</record_update>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_pisn_multiform.MfGrObject</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>MfGrObject</name>
+        <script><![CDATA[var MfGrObject = Class.create();
+
+MfGrObject.prototype = {
+	
+	tableName: false,
+	
+    initialize: function(sysId) {
+		
+		// Nasty. Ideally we'd pass in a GlideRecord, then
+		// use getLocation() to save the location of the record
+		// and restore it with setLocation(). However, neither 
+		// of these are available in ScopedGlideRecord (yet?)
+		// so this will have to do...
+		
+		if (!this.tableName) {
+			throw "Table name not set";
+		}
+		
+		if (typeof sysId !== 'string' || sysId.length !== 32) {
+			throw "Sys ID not provided";
+		}
+		
+		var gr = new GlideRecord(this.tableName);
+
+        if (gr.get(sysId)) {
+			
+			this._gr = gr;
+			
+            return true;
+			
+        } else {
+			throw "Record not found!";
+		}
+		
+    },
+	
+	getSysId: function() {
+        return this._gr.getValue('sys_id');
+    },
+
+    type: 'MfGrObject'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-15 01:14:49</sys_created_on>
+        <sys_id>165f1602db8a5340b85e8a8b3a9619b4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>MfGrObject</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sys_script_include_165f1602db8a5340b85e8a8b3a9619b4</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-15 01:17:47</sys_updated_on>
+    </sys_script_include>
+</record_update>

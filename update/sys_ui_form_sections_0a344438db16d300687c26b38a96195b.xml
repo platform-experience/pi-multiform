@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_form_sections form_id="0a344438db16d300687c26b38a96195b" sys_domain="global" table="x_pisn_multiform_child_widget" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>dylan.lindgren@snc</sys_created_by>
+            <sys_created_on>2018-05-23 03:00:09</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8a344438db16d300687c26b38a96195d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_pisn_multiform_child_widget" name="x_pisn_multiform_child_widget" sys_domain="global" view="Default view">0a344438db16d300687c26b38a96195b</sys_ui_form>
+            <sys_ui_section caption="Child details" display_value="Child details" name="x_pisn_multiform_child_widget" sys_domain="global" view="Default view">ab6f1a80dbd2130031132fb748961921</sys_ui_section>
+            <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+            <sys_updated_on>2018-05-23 03:00:09</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>dylan.lindgren@snc</sys_created_by>
+            <sys_created_on>2018-05-23 03:00:09</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>46344438db16d300687c26b38a96195e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_pisn_multiform_child_widget" name="x_pisn_multiform_child_widget" sys_domain="global" view="Default view">0a344438db16d300687c26b38a96195b</sys_ui_form>
+            <sys_ui_section caption="Widget details" display_value="Widget details" name="x_pisn_multiform_child_widget" sys_domain="global" view="Default view">06344438db16d300687c26b38a96195a</sys_ui_section>
+            <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+            <sys_updated_on>2018-05-23 03:00:09</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>dylan.lindgren@snc</sys_created_by>
+            <sys_created_on>2018-05-23 03:00:09</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>86344438db16d300687c26b38a96197a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_pisn_multiform_child_widget" name="x_pisn_multiform_child_widget" sys_domain="global" view="Default view">0a344438db16d300687c26b38a96195b</sys_ui_form>
+            <sys_ui_section caption="Display" display_value="Display" name="x_pisn_multiform_child_widget" sys_domain="global" view="Default view">0e344438db16d300687c26b38a96195a</sys_ui_section>
+            <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+            <sys_updated_on>2018-05-23 03:00:09</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_pisn_multiform_child_widget</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>dylan.lindgren@snc</sys_created_by>
+            <sys_created_on>2018-05-23 03:00:09</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0a344438db16d300687c26b38a96195b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_pisn_multiform_child_widget</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+            <sys_update_name>sys_ui_form_sections_0a344438db16d300687c26b38a96195b</sys_update_name>
+            <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+            <sys_updated_on>2018-05-23 03:00:09</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

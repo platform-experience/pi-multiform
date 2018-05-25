@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function(PiMfManager) {
+	
+	var c = this;
+	
+	PiMfManager.addOnValueChangeFunc(function (field, newVal, modelGForm) {
+		
+		c.users = [];
+		
+		var fd = PiMfManager.getFormData();
+		
+		_processGForm(fd.master);
+		fd.children.forEach(_processGForm);
+		
+	});
+	
+	function _processGForm(cv) {
+			
+			var gf = cv.gForm;
+
+      gf.getFieldNames().forEach(function(fieldName) {
+				
+				var field = gf.getField(fieldName);
+				var value = gf.getDisplayValue(fieldName);
+				
+				if (field.type === 'reference' && field.refTable === 'sys_user' && value !== '') {
+					c.users.push(value);
+				}
+      });
+		}
+	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.mf-cw-example {
+  margin: 10px;
+}
+
+.mfcwe-title {
+	font-weight: bold;
+}
+
+.mfcwe-desc {
+  margin: 5px 0;
+}
+
+.mfcwe-none {
+  font-style: italic;
+}
+
+ul {
+  margin: 5px 0 5px 20px;
+  padding: 0;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>An example widget to show how one would use the PIMultiform dependency, which allows embedded widgets to interact with the Multiform widget.</description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pi-mf-child-widget-example</id>
+        <internal>false</internal>
+        <link/>
+        <name>Multiform Child Widget Example</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2018-05-23 03:03:59</sys_created_on>
+        <sys_id>56154478db16d300687c26b38a961953</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_name>Multiform Child Widget Example</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sp_widget_56154478db16d300687c26b38a961953</sys_update_name>
+        <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+        <sys_updated_on>2018-05-23 06:13:34</sys_updated_on>
+        <template><![CDATA[<div class="mf-cw-example">
+  <div class="mfcwe-title">${Example Child Widget}</div>
+  <div class="mfcwe-desc">${This is an example Child Widget, in this case showing a list of users selected from any reference field in any form on the page}</div>
+  <div class="mfcwe-title">${Selected Users}</div>
+  <ul ng-repeat="user in c.users">
+    <li>{{::user}}</li>
+  </ul>
+  <div class="mfcwe-none" ng-if="!c.users.length > 0">${No users currently selected}</div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

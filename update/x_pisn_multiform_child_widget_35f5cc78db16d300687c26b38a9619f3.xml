@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_pisn_multiform_child_widget">
+    <x_pisn_multiform_child_widget action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <align_self>stretch</align_self>
+        <apply_to>entire_form</apply_to>
+        <flex_basis>25%</flex_basis>
+        <flex_grow>0</flex_grow>
+        <flex_shrink>0</flex_shrink>
+        <form_section/>
+        <location>right</location>
+        <order>0</order>
+        <parent display_value="">a6e06c06dbb15b00d19b468b3a96198b</parent>
+        <sys_class_name>x_pisn_multiform_child_widget</sys_class_name>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2018-05-23 03:08:01</sys_created_on>
+        <sys_id>35f5cc78db16d300687c26b38a9619f3</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>x_pisn_multiform_child_widget_35f5cc78db16d300687c26b38a9619f3</sys_update_name>
+        <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+        <sys_updated_on>2018-05-23 06:05:51</sys_updated_on>
+        <widget display_value="Multiform Child Widget Example">56154478db16d300687c26b38a961953</widget>
+        <widget_options/>
+    </x_pisn_multiform_child_widget>
+</record_update>

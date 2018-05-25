@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_angular_provider">
+    <sp_angular_provider action="INSERT_OR_UPDATE">
+        <name>piMfUploadService</name>
+        <script><![CDATA[function piMfUploadService ($http, $q, $window) {
+	
+	'use strict';
+
+	var attachmentGuid;
+	var tableName;
+
+	function init(table, sysId) {
+		attachmentGuid = sysId;
+		tableName = table;
+	}
+
+	function upload(files) {
+
+		return $q(function (success, failure) {
+
+			Array.prototype.forEach.call(files, function(file) {
+
+				var fd = new $window.FormData();
+				fd.append('attachments_modified', true);
+				fd.append('sysparm_table', tableName);
+				fd.append('sysparm_sys_id', attachmentGuid);
+				fd.append('sysparm_nostack', 'yes');
+				fd.append('sysparm_encryption_context', '');
+				fd.append('sysparm_ck', $window.g_ck);
+				fd.append('attachFile', file);
+
+				$http.post('/angular.do', fd, {
+					transformRequest: $window.angular.identity,
+					params: {
+						'sysparm_type': 'ngk_attachments',
+						'table': tableName,
+						'sys_id': attachmentGuid,
+						'action': 'add'
+					},
+					headers: {
+						'X-UserToken' : $window.g_ck,
+						'Content-Type': undefined
+					}
+				}).then(function (response) {
+					success(response);
+				});
+
+			});
+
+		});
+	}
+
+	return {
+		upload: upload,
+		init: init
+	};
+}]]></script>
+        <sys_class_name>sp_angular_provider</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-21 04:54:26</sys_created_on>
+        <sys_id>711bc640db92130031132fb748961956</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>piMfUploadService</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sp_angular_provider_711bc640db92130031132fb748961956</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-22 01:03:39</sys_updated_on>
+        <type>service</type>
+    </sp_angular_provider>
+</record_update>

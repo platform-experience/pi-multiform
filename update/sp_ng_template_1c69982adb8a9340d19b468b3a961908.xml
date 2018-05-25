@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>pi-mf-child-item</id>
+        <sp_widget display_value="Multiform">52da025fdb29d300d19b468b3a961947</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2018-05-16 04:46:33</sys_created_on>
+        <sys_id>1c69982adb8a9340d19b468b3a961908</sys_id>
+        <sys_mod_count>57</sys_mod_count>
+        <sys_name>pi-mf-child-item</sys_name>
+        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+        <sys_update_name>sp_ng_template_1c69982adb8a9340d19b468b3a961908</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2018-05-24 05:34:22</sys_updated_on>
+        <template><![CDATA[<div ng-switch="child.type">
+  
+  
+	<!-- Child is a widget -->
+  <div ng-switch-when="ChildWidget">
+    <sp-widget widget="child.widget"></sp-widget>
+  </div>
+  
+  <!-- Child is a form -->
+  <div ng-switch-when="ChildForm" class="pi-mf-forms">
+    
+    <div class="pi-mff-title">{{::child.title}}</div>
+
+    <div class="pi-mff-description" ng-bind-html="::child.description"></div>
+    
+    <div class="pi-mff-requirements" ng-if="::child.minChildRecords || child.maxChildRecords">
+      <ul>
+        <li ng-if="::child.minChildRecords">A minimum of <strong>{{::child.minChildRecords}}</strong> record(s) are required</li>
+        <li ng-if="::child.maxChildRecords">A maximum of <strong>{{::child.maxChildRecords}}</strong> record(s) are allowed</li>
+      </ul>
+    </div>
+    
+    <!-- Give the child form model to the form manager -->
+    <div ng-repeat="formModel in child.formModels" class="pi-mf-form">
+
+      <div class="pi-mff-header" ng-click="toggle(child, $index)">
+        <span class="pi-mf-mandatory mandatory" style="font-weight: bold;"
+              ng-if="c.childHasMandatory(child.sysId, $index)"
+              ng-class="{'mandatory-filled': c.isChildCompleted(child.sysId, $index)}">*</span>{{::formModel.label}} {{$index + 1}}
+        <i class="fa" aria-hidden="true" ng-class="toggleIcon(isExpanded(child, $index))"></i>
+      </div>
+      
+      <!-- Capture  -->
+      <div ng-show="isExpanded(child, $index)"
+           class="pi-mff-container container-fluid"
+           pi-mf-capture
+           pi-mfc-child="{{::child.sysId}}"
+           pi-mfc-min="{{::child.minChildRecords}}"
+           pi-mfc-max="{{::child.maxChildRecords}}"
+           pi-mfc-child="{{::child.sysId}}"
+           pi-mfc-index="{{::$index}}">
+          <sp-model class="pi-mff-body"
+                    form-model="formModel"
+                    mandatory="true"></sp-model>
+      </div>
+      
+    </div>
+
+    <div class="pi-mff-actions">
+      <button ng-click="c.add(child)"
+              ng-if="c.canAdd(child)">New {{::child.label}}</button>
+    </div>
+
+  </div>
+
+</div>]]></template>
+    </sp_ng_template>
+</record_update>
