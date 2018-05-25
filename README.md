@@ -10,6 +10,7 @@ Multiform is an advanced Service Portal form widget that separates each section 
 	
 	<img src="mf-navigation.png" width="350" style="border:1px solid rgb(129, 181, 161);">
 	
+	
 	<img src="mf-next.png" width="150" style="border:1px solid rgb(129, 181, 161);">
 
 - **Drag & drop file upload**
