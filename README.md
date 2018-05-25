@@ -1,4 +1,4 @@
-Multiform
+<img src="logo.png" width="30"> Multiform
 ==================
 Multiform is an advanced Service Portal form widget that separates each section of the form onto sequential, numbered screens for improved user experience. It also offers a number of other benefits over the out-of-box form widget, such as:
 
@@ -7,10 +7,14 @@ Multiform is an advanced Service Portal form widget that separates each section 
 - **Screen-based form completion**
 
 	Each form section becomes its own screen. Screens are able to be navigated through the buttons at the bottom of the form, and the indicators on the top-right.
+	
+	<img src="mf-screenshot.png" width="400">
 
 - **Drag & Drop file upload**
 
 	Both drag and drop and regular upload (via the  button) are supported.
+	
+	<img src="mf-drag-drop.png" width="400">
 
 - **Support for all OOB functionality, such as Client Scripts, UI Policies, Mandatory fields, and form views**
 
@@ -27,6 +31,9 @@ Multiform is an advanced Service Portal form widget that separates each section 
 - **Easy to style**
 	
 	Simply declare a few SASS variables in your theme/page/portal to override certain styles, such as indicator colour, bottom bar colour, and rounded corners.
+	
+	
+<img src="mf-feature-highlight.png" width="100%">	
 	
 Installaton
 -------------------
