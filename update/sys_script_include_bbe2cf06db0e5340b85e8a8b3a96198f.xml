@@ -45,17 +45,24 @@ FormModel.prototype = {
 	getFormModel: function getFormModel () {
 
 		var form = $sp.getForm(this.tableName, this.sysId, '', this.view);
+		
+		var gr = new GlideRecord('sys_dictionary');
+		gr.addQuery('name', this.tableName);
+		gr.addQuery('element', this.parentRef);
+		gr.setLimit(1);
+		gr.query();
+		gr.next();
 
 		form._fields[this.parentRef] = {
 			"sys_mandatory": false,
-			"visible": true,
+			"visible": false,
 			"dbType": 12,
 			"label": this.parentRefDisplay,
 			"sys_readonly": false,
 			"type": "reference",
 			"mandatory": false,
-			//"refTable": "problem",
-			//"reference_type": "table",
+			"refTable": gr.getValue('reference'),
+			"reference_type": "table",
 			"displayValue": "",
 			"readonly": false,
 			"name": this.parentRef,
@@ -66,9 +73,7 @@ FormModel.prototype = {
 			"value": "",
 			"max_length": 32,
 			"ed": {
-				//"reference": "problem",
-				//"searchField": "number",
-				//"defaultOperator": "STARTSWITH",
+				"reference": gr.getValue('reference'),
 				"name": this.parentRef
 			},
 			"stagedValue": ""
@@ -93,13 +98,13 @@ FormModel.prototype = {
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2018-05-15 03:50:35</sys_created_on>
         <sys_id>bbe2cf06db0e5340b85e8a8b3a96198f</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>FormModel</sys_name>
         <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
         <sys_update_name>sys_script_include_bbe2cf06db0e5340b85e8a8b3a96198f</sys_update_name>
         <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2018-05-18 07:24:45</sys_updated_on>
+        <sys_updated_on>2018-05-25 06:08:37</sys_updated_on>
     </sys_script_include>
 </record_update>
