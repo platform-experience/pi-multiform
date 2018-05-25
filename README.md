@@ -1,4 +1,5 @@
-#Multiform
+Multiform
+==================
 Multiform is an advanced Service Portal form widget that separates each section of the form onto sequential, numbered screens for improved user experience. It also offers a number of other benefits over the out-of-box form widget, such as:
 
 
@@ -27,12 +28,14 @@ Multiform is an advanced Service Portal form widget that separates each section 
 	
 	Simply declare a few SASS variables in your theme/page/portal to override certain styles, such as indicator colour, bottom bar colour, and rounded corners.
 	
-##Installaton
+Installaton
+-------------------
 1. Open Studio on your ServiceNow instance.
 2. Click the **Import From Source Control** button.
 3. As the value of the URL field use the following:
 	`https://github.com/platform-experience/pi-multiform`
 4. Press the **Import** button
 
-##Usage
+Usage
+-------------------
 The application includes a test page, which can be accessed from the `/sp?id=x_mf_test` path on your instance. This will give you an example of some of the features and how to configure them.
