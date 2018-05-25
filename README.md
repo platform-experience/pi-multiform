@@ -8,17 +8,27 @@ Multiform is an advanced Service Portal form widget that separates each section 
 
 	Each form section becomes its own screen. Screens are able to be navigated through the buttons at the bottom of the form, and the indicators on the top-right.
 	
-	<img src="mf-screenshot.png" width="400">
+	<img src="mf-navigation.png" width="350" style="border:1px solid rgb(129, 181, 161);">
+	
+	<img src="mf-next.png" width="150" style="border:1px solid rgb(129, 181, 161);">
 
-- **Drag & Drop file upload**
+- **Drag & drop file upload**
 
 	Both drag and drop and regular upload (via the  button) are supported.
 	
-	<img src="mf-drag-drop.png" width="400">
+	<img src="mf-drag-drop.png" width="250" style="border:1px solid rgb(129, 181, 161);">
 
-- **Support for all OOB functionality, such as Client Scripts, UI Policies, Mandatory fields, and form views**
-
-	All features supported by the OOB form widget are supported by this Multiform widget.
+- **Support for all native form functionality**
+	
+	All native form functionality is supported, such as
+	
+	- Client Scripts
+	- UI Policy
+	- Read-only fields
+	- Mandatory fields
+	- Form layouts
+	- Reference fields
+	- Dictionary attributes
 
 - **Embedded “Child Forms” (related lists)**
 
@@ -32,7 +42,11 @@ Multiform is an advanced Service Portal form widget that separates each section 
 	
 	Simply declare a few SASS variables in your theme/page/portal to override certain styles, such as indicator colour, bottom bar colour, and rounded corners.
 	
-	
+Screenshots
+-------------------
+
+<img src="mf-screenshot.png" width="100%">
+
 <img src="mf-feature-highlight.png" width="100%">	
 	
 Installaton
