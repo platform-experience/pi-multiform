@@ -6,12 +6,20 @@ Multiform is an advanced Service Portal form widget that separates each section 
 
 - **Screen-based form completion**
 
-	Each form section becomes its own screen. Screens are able to be navigated through the buttons at the bottom of the form, and the indicators on the top-right.
+	Each form section becomes its own screen:
 	
-	<img src="mf-navigation.png" width="350" style="border:1px solid rgb(129, 181, 161);">
+	<img src="mf-screen-progression.png">
 	
 	
-	<img src="mf-next.png" width="150" style="border:1px solid rgb(129, 181, 161);">
+	Screens are able to be navigated through the buttons at the bottom of the form:
+	
+	<img src="mf-next.png" width="100">
+	
+	
+	And using the indicators at the top-right:
+	
+	<img src="mf-navigation.png" width="150">
+	
 
 - **Drag & drop file upload**
 
@@ -60,4 +68,80 @@ Installaton
 
 Usage
 -------------------
-The application includes a test page, which can be accessed from the `/sp?id=x_mf_test` path on your instance. This will give you an example of some of the features and how to configure them.
+The application includes a test page which can be accessed from the `/sp?id=x_mf_test` path on your instance. This will give you an example of some of the features and how one might configure them.
+
+Whenever you drag the Multiform widget onto a page using Service Portal Designer, an instance of the widget is created. You can configure it by holdling CTRL and right-clicking on, selecting "Instance Options", and following the instructions displayed to open the instance in the platform view.
+
+From the platform view, you have full control over the way your form is configured.
+
+### Multiform Instance
+The Multiform Instance record is the core record, which controls how the actual main form operates and displays.
+
+| Field | Description | Mandatory | Default |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------|
+| Table | The table that the form will show | yes |  |
+| Record | Hard-code a record to display. If not defined, the sys_id URL parameter will be used. If this isn't supplied, a new record will be created. | no |  |
+| View | The view that the form will show. The form sections on this view will shown as "screens". | yes |  |
+| Roles | Roles that are required to be able to see this widget | no |  |
+| Progression method | Whether users will be able to freely navigate using the indicators at any time, or only navigate to screens they have visited already. | yes | Full control |
+| Success page | The Service Portal page that the user will be redirected to after form submission. The URL parameters `sys_id` and `table` will be supplied to this page. | yes |  |
+| Order | Used to determine in what position this widget will display, relative to other widget instances in the same container. | no |  |
+| CSS | Additional CSS that will be loaded for this instance of the widget | no |  |
+
+### Multiform Child
+There are two types of Multiform Children. Both extend from the Multiform Child table, and thus have some common options:
+
+| Field | Description | Mandatory | Default |
+|--------------|-------------------------------------------------------------------------------|-----------|-------------|
+| Parent | The Multiform Instance that this is a child of | yes |  |
+| Active | Control whether Multiform Child is used | yes | true |
+| Apply to | Apply either to all screens, or a specific section | yes | All screens |
+| Form section | If Apply to is set to Specific section, you can choose the section from here | yes |  |
+| Location | Whether the child appears at the top, bottom, left, or right of the screen | yes | bottom |
+| Align self | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | stretch |
+| Order | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | 0 |
+| Flex grow | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | 0 |
+| Flex shrink | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | 1 |
+| Flex basis | Flexbox property. See https://css-tricks.com/snippets/css/a-guide-to-flexbox/ | yes | auto |
+
+There are also some options unique to each type of child.
+
+#### Child Form
+| Field | Description | Mandatory | Default |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------|
+| Table | The table that the form will show | yes |  |
+| Record | Hard-code a record to display. If not defined, the sys_id URL parameter will be used. If this isn't supplied, a new record will be created. | no |  |
+| View | The view that the form will show. The form sections on this view will shown as "screens". | yes |  |
+| Roles | Roles that are required to be able to see this widget | no |  |
+| Progression method | Whether users will be able to freely navigate using the indicators at any time, or only navigate to screens they have visited already. | yes | Full control |
+| Success page | The Service Portal page that the user will be redirected to after form submission. The URL parameters `sys_id` and `table` will be supplied to this page. | yes |  |
+| Order | Used to determine in what position this widget will display, relative to other widget instances in the same container. | no |  |
+| CSS | Additional CSS that will be loaded for this instance of the widget | no |  |
+
+#### Child Widget
+| Field | Description | Mandatory | Default |
+|---------------------|-------------------------------------------------------------------------------------------------------------|-----------|---------|
+| Widget | The widget to be shown | yes |  |
+| Widget options | Options that will be supplied to the widget when it loads | no |  |
+
+### Styling
+There are a number of SASS variables that can be declared in your portal's theme, CSS, or your page's CSS to override the default styling of the widget and make it fit in better with your portal.
+
+| Variable | Description |
+|---------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| `$pi-mf-header-color` | The text color used for headers |
+| `$pi-mf-actions-bg` | The background color of the actions bar at the bottom of the form |
+| `$pi-mf-actions-button` | The background color used for primary actions (e.g. Next), and border color used for secondary actions (e.g. Previous) |
+| `$pi-mf-actions-button-color` | The text color used for primary actions |
+| `$pi-mf-highlight-bg` | The background color of the attachment area |
+| `$pi-mf-inner-form-bg` | The background color of inner forms |
+| `$pi-mf-border-radius` | The border radius for the main form, action bar, action buttons, child form area, and child forms. |
+| `$pi-mf-indicator-bg` | The background color of the indicators on the top-right of the screen |
+| `$pi-mf-indicator-bg-active` | The background color of an active indicator (e.g. current screen) |
+| `$pi-mf-indicator-color` | The text color of indicators |
+| `$pi-mf-indicator-color-active` | The text color of active indicators |
+| `$pi-mf-formgroup-border-color` | The border color of the child form area |
+| `$pi-mf-attachment-pill-bg` | The background color of the individual attachment pills |
+| `$pi-mf-attachment-pill-color` | The text color of the individual attachment pills |
+| `$pi-mf-attachment-add-bg` | The background color of the "add attachment" button |
+| `$pi-mf-attachment-add-color` | The color of the + icon in the "add attachment" button |
