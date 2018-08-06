@@ -4,7 +4,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>title</element>
-            <list_id display_value="x_pisn_multiform_sp_instance" element="NULL" name="x_pisn_multiform_sp_instance" parent="NULL" relationship="NULL" sys_domain="global" view="6363337314211300651763392430a487">f10a51c4db315700d19b468b3a9619ff</list_id>
+            <list_id display_value="x_pisn_multiform_sp_instance" element="NULL" name="x_pisn_multiform_sp_instance" parent="NULL" relationship="NULL" sys_domain="global" view="a8662270db33130012e035a27a961919">f10a51c4db315700d19b468b3a9619ff</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
@@ -41,7 +41,7 @@
             <sys_updated_by>dylan.lindgren</sys_updated_by>
             <sys_updated_on>2018-04-26 04:48:12</sys_updated_on>
             <sys_user/>
-            <view display_value="Reference List" name="sys_ref_list">6363337314211300651763392430a487</view>
+            <view display_value="Reference List" name="sys_ref_list">a8662270db33130012e035a27a961919</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

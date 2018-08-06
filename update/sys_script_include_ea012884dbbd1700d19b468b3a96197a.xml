@@ -12,6 +12,25 @@ MFReferenceHelper.prototype = {
     initialize: function() {
     },
 	
+	limitViewsToTable: function () {
+		
+		var gr = new GlideRecord('sys_ui_section');
+		gr.addQuery('name', 'problem');
+		gr.query();
+		
+		var viewNames = [];
+		
+		while (gr.next()) {
+			viewNames.push(gr.view.getDisplayValue());
+		}
+		
+		var q = 'nameIN' + viewNames.join(',');
+		
+		q = q + '^ORnameISEMPTY';
+		
+		return q;
+	},
+	
 	relatedFormSections: function () {
 		
 		var q = '';
@@ -37,13 +56,13 @@ MFReferenceHelper.prototype = {
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2018-04-26 00:40:50</sys_created_on>
         <sys_id>ea012884dbbd1700d19b468b3a96197a</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>MFReferenceHelper</sys_name>
         <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
         <sys_update_name>sys_script_include_ea012884dbbd1700d19b468b3a96197a</sys_update_name>
-        <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2018-05-01 00:40:43</sys_updated_on>
+        <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+        <sys_updated_on>2018-08-06 13:53:57</sys_updated_on>
     </sys_script_include>
 </record_update>
