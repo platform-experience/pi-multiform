@@ -12,7 +12,7 @@
         <element label="Record" max_length="32" name="record" type="document_id"/>
         <element label="Success page" mandatory="true" max_length="40" name="success_page" reference="sp_page" reference_key="id" type="reference"/>
         <element attributes="allow_tables=all" label="Table" mandatory="true" max_length="80" name="table" type="table_name"/>
-        <element label="View" mandatory="true" max_length="80" name="view" reference="sys_ui_view" reference_key="name" reference_qual="javascript: new MFReferenceHelper().limitViewsToTable();" type="reference" use_reference_qualifier="advanced"/>
+        <element label="View" max_length="80" name="view" reference="sys_ui_view" reference_key="name" reference_qual="javascript: new MFReferenceHelper().limitViewsToTable();" type="reference" use_reference_qualifier="advanced"/>
         <index name="index">
             <element name="view"/>
         </index>
