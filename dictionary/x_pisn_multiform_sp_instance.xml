@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" extends="sp_instance" label="Instance of Multiform" max_length="40" name="x_pisn_multiform_sp_instance" type="collection">
         <element default="Please use the &quot;Open in platform&quot; link from the hamburger menu on this dialog to configure this widget." label="Please read" max_length="8000" name="instructions" read_only="true" type="translated_html"/>
         <element choice="3" default="full" label="Progression method" mandatory="true" max_length="40" name="progression_method" type="choice">
             <choice>
-                <element label="Full control" sequence="1" value="full"/>
-                <element label="Visited only" sequence="2" value="visited_only"/>
-                <element label="None" sequence="3" value="none"/>
+                <element inactive_on_update="false" label="Full control" sequence="1" value="full"/>
+                <element inactive_on_update="false" label="Visited only" sequence="2" value="visited_only"/>
+                <element inactive_on_update="false" label="None" sequence="3" value="none"/>
             </choice>
         </element>
         <element label="Record" max_length="32" name="record" type="document_id"/>
         <element label="Success page" mandatory="true" max_length="40" name="success_page" reference="sp_page" reference_key="id" type="reference"/>
         <element attributes="allow_tables=all" label="Table" mandatory="true" max_length="80" name="table" type="table_name"/>
-        <element label="View" max_length="80" name="view" reference="sys_ui_view" reference_key="name" reference_qual="javascript: new MFReferenceHelper().limitViewsToTable();" type="reference" use_reference_qualifier="advanced"/>
+        <element label="View" max_length="80" name="view" reference="sys_ui_view" reference_qual="javascript: new MFReferenceHelper().limitViewsToTable();" type="reference" use_reference_qualifier="advanced"/>
         <index name="index">
             <element name="view"/>
         </index>

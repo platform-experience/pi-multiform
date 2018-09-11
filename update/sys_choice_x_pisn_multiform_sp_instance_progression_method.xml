@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_choice action="INSERT_OR_UPDATE" field="progression_method" table="x_pisn_multiform_sp_instance" version="3">
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -64,7 +63,7 @@
             <sys_class_name>sys_choice_set</sys_class_name>
             <sys_created_by>dylan.lindgren@snc</sys_created_by>
             <sys_created_on>2018-05-23 02:36:38</sys_created_on>
-            <sys_id>05cb4ca5db331300c673eb41ca961933</sys_id>
+            <sys_id>c77d475cdb2023004fe4f36f299619e8</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>progression_method</sys_name>
             <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>

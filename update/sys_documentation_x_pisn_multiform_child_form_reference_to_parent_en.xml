@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_documentation element="reference_to_parent" label="Reference to parent" language="en" table="x_pisn_multiform_child_form">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>reference_to_parent</element>

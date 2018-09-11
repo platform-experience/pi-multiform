@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_form_sections form_id="0a344438db16d300687c26b38a96195b" sys_domain="global" table="x_pisn_multiform_child_widget" version="3">
         <sys_ui_form_section action="INSERT_OR_UPDATE">
             <position>0</position>

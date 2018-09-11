@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_db_object">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object">
     <sys_db_object action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <actions_access>false</actions_access>
@@ -17,7 +16,7 @@
         <number_ref/>
         <provider_class/>
         <read_access>false</read_access>
-        <super_class display_value="Application File" name="sys_metadata">da2a11115d121300651727c3e282e862</super_class>
+        <super_class display_value="Application File" name="sys_metadata">8a12332181131300aadba4a47c598e5e</super_class>
         <sys_class_code/>
         <sys_class_name>sys_db_object</sys_class_name>
         <sys_class_path/>

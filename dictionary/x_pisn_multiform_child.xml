@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" extends="sys_metadata" label="Multiform Child" max_length="40" name="x_pisn_multiform_child" type="collection">
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element choice="3" default="stretch" label="Align self" mandatory="true" max_length="40" name="align_self" type="choice">
             <choice>
-                <element label="baseline" value="baseline"/>
-                <element label="center" value="center"/>
-                <element label="flex-end" value="flex-end"/>
-                <element label="flex-start" value="flex-start"/>
-                <element label="stretch" value="stretch"/>
+                <element inactive_on_update="false" label="baseline" value="baseline"/>
+                <element inactive_on_update="false" label="center" value="center"/>
+                <element inactive_on_update="false" label="flex-end" value="flex-end"/>
+                <element inactive_on_update="false" label="flex-start" value="flex-start"/>
+                <element inactive_on_update="false" label="stretch" value="stretch"/>
             </choice>
         </element>
         <element choice="3" default="entire_form" label="Apply to" mandatory="true" max_length="40" name="apply_to" type="choice">
             <choice>
-                <element label="All screens" value="entire_form"/>
-                <element label="Single screen (section)" value="single_section"/>
+                <element inactive_on_update="false" label="All screens" value="entire_form"/>
+                <element inactive_on_update="false" label="Single screen (section)" value="single_section"/>
             </choice>
         </element>
         <element default="auto" label="Flex basis" mandatory="true" max_length="10" name="flex_basis" type="string"/>
@@ -23,10 +22,10 @@
         <element label="Form section" max_length="32" name="form_section" reference="sys_ui_form_section" type="reference"/>
         <element choice="3" default="bottom" label="Location" mandatory="true" max_length="40" name="location" type="choice">
             <choice>
-                <element label="Bottom" value="bottom"/>
-                <element label="Left" value="left"/>
-                <element label="Right" value="right"/>
-                <element label="Top" value="top"/>
+                <element inactive_on_update="false" label="Bottom" value="bottom"/>
+                <element inactive_on_update="false" label="Left" value="left"/>
+                <element inactive_on_update="false" label="Right" value="right"/>
+                <element inactive_on_update="false" label="Top" value="top"/>
             </choice>
         </element>
         <element default="0" label="Order" mandatory="true" max_length="40" name="order" type="integer"/>

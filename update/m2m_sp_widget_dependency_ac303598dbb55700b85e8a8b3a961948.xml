@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="m2m_sp_widget_dependency">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
     <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
         <sp_dependency display_value="PiMfLib">85003598dbb55700b85e8a8b3a9619b8</sp_dependency>
         <sp_widget display_value="Multiform">52da025fdb29d300d19b468b3a961947</sp_widget>

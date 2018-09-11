@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update sys_domain="global" table="sys_ui_policy">
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
     <sys_ui_policy action="INSERT_OR_UPDATE">
         <active>true</active>
         <conditions table="x_pisn_multiform_child">apply_to=single_section^EQ<item endquery="false" field="apply_to" goto="false" newquery="false" operator="=" or="false" value="single_section"/>
@@ -8,6 +7,7 @@
         <description/>
         <global>true</global>
         <inherit>true</inherit>
+        <isolate_script>false</isolate_script>
         <model_id/>
         <model_table/>
         <on_load>true</on_load>

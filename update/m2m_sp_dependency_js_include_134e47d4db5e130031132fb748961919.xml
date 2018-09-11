@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="m2m_sp_dependency_js_include">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_dependency_js_include">
     <m2m_sp_dependency_js_include action="INSERT_OR_UPDATE">
         <order>200</order>
         <sp_dependency display_value="PiMfLib">85003598dbb55700b85e8a8b3a9619b8</sp_dependency>

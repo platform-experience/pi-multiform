@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="m2m_sp_widget_dependency">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
     <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
         <sp_dependency display_value="PiMultiForm">920ad294dbda130031132fb7489619fe</sp_dependency>
         <sp_widget display_value="Multiform Child Widget Example">56154478db16d300687c26b38a961953</sp_widget>

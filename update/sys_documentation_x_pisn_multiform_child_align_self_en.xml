@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_documentation element="align_self" label="Align self" language="en" table="x_pisn_multiform_child">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>align_self</element>

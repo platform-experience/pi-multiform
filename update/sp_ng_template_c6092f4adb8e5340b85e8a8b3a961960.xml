@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sp_ng_template">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
     <sp_ng_template action="INSERT_OR_UPDATE">
         <id>pi-mf-attachment-manager</id>
         <sp_widget display_value="Multiform">52da025fdb29d300d19b468b3a961947</sp_widget>

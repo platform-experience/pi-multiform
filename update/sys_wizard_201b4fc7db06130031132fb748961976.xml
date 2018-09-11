@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_wizard">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard">
     <sys_wizard action="INSERT_OR_UPDATE">
         <back_panel/>
         <intercepts>x_pisn_multiform_child.do</intercepts>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="m2m_sp_ng_pro_sp_widget">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
     <m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE">
         <sp_angular_provider display_value="piMfDragDropUpload">81b52dc0db12130031132fb7489619fc</sp_angular_provider>
         <sp_widget display_value="Multiform">52da025fdb29d300d19b468b3a961947</sp_widget>

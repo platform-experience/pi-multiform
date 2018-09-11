@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="x_pisn_multiform_child_form">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_pisn_multiform_child_form">
     <x_pisn_multiform_child_form action="INSERT_OR_UPDATE">
         <active>true</active>
         <align_self>stretch</align_self>

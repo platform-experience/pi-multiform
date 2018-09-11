@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sp_widget">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
         <client_script><![CDATA[function PiMultiFormCtrl ($scope, PiMfManager, $timeout, $location, nowAttachmentHandler, spUtil, PiMfUpload) {
@@ -686,7 +685,7 @@ Additionally, it offers drag-and-drop file upload, and child elements (e.g. form
 		
 		data.table = options.table;
 		data.sysId = options.record || $sp.getParameter('sys_id') || '-1';
-		data.view = options.view;
+		data.view = options.view || '';
 		data.maxAttachmentSize = parseInt(gs.getProperty("com.glide.attachment.max_size", 1024));
 		
 		var rec = new GlideRecord(data.table);
@@ -697,11 +696,6 @@ Additionally, it offers drag-and-drop file upload, and child elements (e.g. form
 		if (!data.sysId) {
 			data.isValid = false;
 			data.errorMessages.push(gs.getMessage("You provided an invalid SysID"));
-		}
-		
-		if (!data.view) {
-			data.isValid = false;
-			data.errorMessages.push(gs.getMessage("No view is set in the widget instance's configuration"));
 		}
 
 		if (!data.table) {
@@ -740,14 +734,14 @@ Additionally, it offers drag-and-drop file upload, and child elements (e.g. form
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2018-04-24 00:26:03</sys_created_on>
         <sys_id>52da025fdb29d300d19b468b3a961947</sys_id>
-        <sys_mod_count>1007</sys_mod_count>
+        <sys_mod_count>1012</sys_mod_count>
         <sys_name>Multiform</sys_name>
         <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
         <sys_policy/>
         <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
         <sys_update_name>sp_widget_52da025fdb29d300d19b468b3a961947</sys_update_name>
-        <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
-        <sys_updated_on>2018-08-06 13:54:13</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-09-11 01:12:28</sys_updated_on>
         <template><![CDATA[<div class="pi-multiform" pi-mf-drag-drop-upload>
 
   <div class="pimf-drag-drop-overlay">

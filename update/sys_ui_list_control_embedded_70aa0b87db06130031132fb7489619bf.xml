@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update sys_domain="global" table="sys_ui_list_control_embedded">
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_list_control_embedded">
     <sys_ui_list_control_embedded action="INSERT_OR_UPDATE">
         <columns_condition/>
         <empty_condition/>
