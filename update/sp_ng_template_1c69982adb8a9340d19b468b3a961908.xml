@@ -6,14 +6,14 @@
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2018-05-16 04:46:33</sys_created_on>
         <sys_id>1c69982adb8a9340d19b468b3a961908</sys_id>
-        <sys_mod_count>57</sys_mod_count>
+        <sys_mod_count>60</sys_mod_count>
         <sys_name>pi-mf-child-item</sys_name>
         <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
         <sys_policy/>
         <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
         <sys_update_name>sp_ng_template_1c69982adb8a9340d19b468b3a961908</sys_update_name>
         <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2018-05-24 05:34:22</sys_updated_on>
+        <sys_updated_on>2019-03-17 23:11:37</sys_updated_on>
         <template><![CDATA[<div ng-switch="child.type">
   
   
@@ -64,7 +64,7 @@
 
     <div class="pi-mff-actions">
       <button ng-click="c.add(child)"
-              ng-if="c.canAdd(child)">New {{::child.label}}</button>
+              ng-if="c.canAdd(child)">${New} {{::child.label}}</button>
     </div>
 
   </div>

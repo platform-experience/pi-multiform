@@ -692,7 +692,7 @@ Additionally, it offers drag-and-drop file upload, and child elements (e.g. form
 		if (viewId) {
 			var viewGr = new GlideRecord('sys_ui_view');
 			if (viewGr.get(viewId)) {
-				gs.addInfoMessage(viewGr.getValue('name'))
+				//gs.addInfoMessage(viewGr.getValue('name'))
 				data.view = viewGr.getValue('name');
 			}
 		}
@@ -745,14 +745,14 @@ Additionally, it offers drag-and-drop file upload, and child elements (e.g. form
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2018-04-24 00:26:03</sys_created_on>
         <sys_id>52da025fdb29d300d19b468b3a961947</sys_id>
-        <sys_mod_count>1018</sys_mod_count>
+        <sys_mod_count>1020</sys_mod_count>
         <sys_name>Multiform</sys_name>
         <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
         <sys_policy/>
         <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
         <sys_update_name>sp_widget_52da025fdb29d300d19b468b3a961947</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-12-03 23:22:36</sys_updated_on>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2019-03-17 23:07:48</sys_updated_on>
         <template><![CDATA[<div class="pi-multiform" pi-mf-drag-drop-upload>
 
   <div class="pimf-drag-drop-overlay">
