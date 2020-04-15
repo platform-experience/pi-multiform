@@ -3,6 +3,7 @@
         <access>package_private</access>
         <active>true</active>
         <api_name>x_pisn_multiform.Multiform</api_name>
+        <caller_access/>
         <client_callable>false</client_callable>
         <description/>
         <name>Multiform</name>

@@ -3,6 +3,7 @@
         <active>true</active>
         <can_edit_in_studio>false</can_edit_in_studio>
         <enforce_license>log</enforce_license>
+        <guided_setup_guid/>
         <js_level>helsinki_es5</js_level>
         <licensable>true</licensable>
         <license_category/>
@@ -40,6 +41,7 @@
         <compressed>true</compressed>
         <content_type>image/png</content_type>
         <file_name>logo</file_name>
+        <hash/>
         <image_height>783</image_height>
         <image_width>783</image_width>
         <size_bytes>13783</size_bytes>
