@@ -61,10 +61,10 @@ Screenshots
 	
 Installaton
 -------------------
+0. Fork this repository into your own Github account.
 1. Open Studio on your ServiceNow instance.
 2. Click the **Import From Source Control** button.
-3. As the value of the URL field use the following:
-	`https://github.com/platform-experience/pi-multiform`
+3. As the value of the URL field, use the URL copied from the "Clone" option in your fork of this repository.
 4. Press the **Import** button
 
 Usage
