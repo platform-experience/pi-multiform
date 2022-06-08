@@ -6,8 +6,10 @@
         <dynamic_title_structure/>
         <id>x_mf_test</id>
         <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
         <public>false</public>
         <roles/>
+        <seo_script/>
         <short_description/>
         <sys_class_name>sp_page</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
@@ -22,6 +24,7 @@
         <sys_updated_by>dylan.lindgren</sys_updated_by>
         <sys_updated_on>2018-05-21 06:35:20</sys_updated_on>
         <title>Multiform test</title>
+        <use_seo_script>false</use_seo_script>
     </sp_page>
     <sys_translated_text action="delete_multiple" query="documentkey=077a821fdb29d300d19b468b3a961957"/>
 </record_update>

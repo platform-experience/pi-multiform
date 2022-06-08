@@ -3,6 +3,7 @@
         <active>true</active>
         <description/>
         <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>x_pisn_multiform.Service.PiMfUpload</name>
         <script><![CDATA[PiMf.service('PiMfUpload', function piMfUpload ($http, $q, $window) {
 	

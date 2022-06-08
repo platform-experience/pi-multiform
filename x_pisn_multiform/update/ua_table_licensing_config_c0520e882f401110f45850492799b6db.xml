@@ -4,22 +4,22 @@
         <license_condition/>
         <license_model>none</license_model>
         <license_roles/>
-        <name>x_pisn_multiform_sp_instance</name>
+        <name>x_pisn_multiform_child</name>
         <op_delete>true</op_delete>
         <op_insert>true</op_insert>
         <op_update>true</op_update>
         <owner_condition/>
         <sys_class_name>ua_table_licensing_config</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
-        <sys_created_on>2018-04-24 00:28:27</sys_created_on>
-        <sys_id>f1815db31b4810108a8a631d274bcb8b</sys_id>
+        <sys_created_on>2018-05-18 06:00:55</sys_created_on>
+        <sys_id>c0520e882f401110f45850492799b6db</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>x_pisn_multiform_sp_instance</sys_name>
+        <sys_name>x_pisn_multiform_child</sys_name>
         <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
         <sys_policy/>
         <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
-        <sys_update_name>ua_table_licensing_config_f1815db31b4810108a8a631d274bcb8b</sys_update_name>
+        <sys_update_name>ua_table_licensing_config_c0520e882f401110f45850492799b6db</sys_update_name>
         <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2018-04-24 00:28:27</sys_updated_on>
+        <sys_updated_on>2018-05-18 06:00:55</sys_updated_on>
     </ua_table_licensing_config>
 </record_update>

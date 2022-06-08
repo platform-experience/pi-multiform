@@ -3,6 +3,7 @@
         <active>true</active>
         <description/>
         <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>x_pisn_multiform.Module.PiMfLib</name>
         <script><![CDATA[var PiMf = angular.module('PiMfLib', []);]]></script>
         <script_name>Module.PiMfLib</script_name>

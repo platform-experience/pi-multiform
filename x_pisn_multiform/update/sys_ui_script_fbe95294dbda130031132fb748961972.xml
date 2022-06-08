@@ -3,6 +3,7 @@
         <active>true</active>
         <description/>
         <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>x_pisn_multiform.Module.PiMultiForm</name>
         <script><![CDATA[var PiMf = angular.module('PiMultiForm', []);]]></script>
         <script_name>Module.PiMultiForm</script_name>

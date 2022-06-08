@@ -138,7 +138,7 @@
             <sys_domain_path>/</sys_domain_path>
             <sys_id>8ccc034bdb06130031132fb7489619a1</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_name>Form details</sys_name>
+            <sys_name>x_pisn_multiform_child_form</sys_name>
             <sys_overrides/>
             <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
             <sys_policy/>

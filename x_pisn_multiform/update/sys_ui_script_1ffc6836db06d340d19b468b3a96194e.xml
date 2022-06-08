@@ -3,6 +3,7 @@
         <active>true</active>
         <description/>
         <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>x_pisn_multiform.Directive.piMfCapture</name>
         <script><![CDATA[PiMf.directive('piMfCapture', function piMfCapture(PiMfManager) {
 

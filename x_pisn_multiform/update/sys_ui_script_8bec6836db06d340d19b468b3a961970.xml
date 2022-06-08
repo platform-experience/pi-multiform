@@ -3,6 +3,7 @@
         <active>true</active>
         <description/>
         <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>x_pisn_multiform.Service.PiMfManager</name>
         <script><![CDATA[PiMf.service('PiMfManager', function PiMfManager(
   $q, spUtil, i18n, $location, $rootScope, $timeout) {

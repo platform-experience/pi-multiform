@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_choice action="DELETE" field="apply_to" table="x_pisn_multiform_child" version="3">
+    <sys_choice action="INSERT_OR_UPDATE" field="apply_to" table="x_pisn_multiform_child" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>apply_to</element>
+            <name>x_pisn_multiform_child</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>dylan.lindgren</sys_created_by>
+            <sys_created_on>2020-04-15 04:43:01</sys_created_on>
+            <sys_id>5c520e882f401110f45850492799b6e1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>apply_to</sys_name>
+            <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
+            <sys_update_name>sys_choice_x_pisn_multiform_child_apply_to</sys_update_name>
+            <sys_updated_by>dylan.lindgren</sys_updated_by>
+            <sys_updated_on>2020-04-15 04:43:01</sys_updated_on>
+        </sys_choice_set>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
             <element>apply_to</element>
@@ -9,6 +25,7 @@
             <language>en</language>
             <name>x_pisn_multiform_child</name>
             <sequence/>
+            <synonyms/>
             <sys_created_by>dylan.lindgren</sys_created_by>
             <sys_created_on>2020-04-15 04:43:01</sys_created_on>
             <sys_domain>global</sys_domain>
@@ -28,6 +45,7 @@
             <language>en</language>
             <name>x_pisn_multiform_child</name>
             <sequence/>
+            <synonyms/>
             <sys_created_by>dylan.lindgren</sys_created_by>
             <sys_created_on>2020-04-15 04:43:01</sys_created_on>
             <sys_domain>global</sys_domain>
@@ -38,66 +56,5 @@
             <sys_updated_on>2020-04-15 04:43:01</sys_updated_on>
             <value>single_section</value>
         </sys_choice>
-        <sys_choice_set action="INSERT_OR_UPDATE">
-            <element>apply_to</element>
-            <name>x_pisn_multiform_child</name>
-            <sys_class_name>sys_choice_set</sys_class_name>
-            <sys_created_by>dylan.lindgren</sys_created_by>
-            <sys_created_on>2020-04-15 04:43:01</sys_created_on>
-            <sys_id>ed815db31b4810108a8a631d274bcb37</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_name>apply_to</sys_name>
-            <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
-            <sys_policy/>
-            <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
-            <sys_update_name>sys_choice_x_pisn_multiform_child_apply_to</sys_update_name>
-            <sys_updated_by>dylan.lindgren</sys_updated_by>
-            <sys_updated_on>2020-04-15 04:43:01</sys_updated_on>
-        </sys_choice_set>
     </sys_choice>
-    <sys_update_version action="INSERT_OR_UPDATE">
-        <action>DELETE</action>
-        <application display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</application>
-        <file_path/>
-        <instance_id>93755833db40d414c6e711f84896193c</instance_id>
-        <instance_name>dl2</instance_name>
-        <name>sys_choice_x_pisn_multiform_child_apply_to</name>
-        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_choice action="INSERT_OR_UPDATE" field="apply_to" table="x_pisn_multiform_child" version="3"><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>apply_to</element><hint/><inactive>false</inactive><label>All screens</label><language>en</language><name>x_pisn_multiform_child</name><sequence/><sys_created_by>dylan.lindgren</sys_created_by><sys_created_on>2020-04-15 04:43:01</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>a9815db31b4810108a8a631d274bcb37</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>dylan.lindgren</sys_updated_by><sys_updated_on>2020-04-15 04:43:01</sys_updated_on><value>entire_form</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>apply_to</element><hint/><inactive>false</inactive><label>Single screen (section)</label><language>en</language><name>x_pisn_multiform_child</name><sequence/><sys_created_by>dylan.lindgren</sys_created_by><sys_created_on>2020-04-15 04:43:01</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>e9815db31b4810108a8a631d274bcb37</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>dylan.lindgren</sys_updated_by><sys_updated_on>2020-04-15 04:43:01</sys_updated_on><value>single_section</value></sys_choice><sys_choice_set action="INSERT_OR_UPDATE"><element>apply_to</element><name>x_pisn_multiform_child</name><sys_class_name>sys_choice_set</sys_class_name><sys_created_by>dylan.lindgren</sys_created_by><sys_created_on>2020-04-15 04:43:01</sys_created_on><sys_id>ed815db31b4810108a8a631d274bcb37</sys_id><sys_mod_count>0</sys_mod_count><sys_name>apply_to</sys_name><sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package><sys_policy/><sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope><sys_update_name>sys_choice_x_pisn_multiform_child_apply_to</sys_update_name><sys_updated_by>dylan.lindgren</sys_updated_by><sys_updated_on>2020-04-15 04:43:01</sys_updated_on></sys_choice_set></sys_choice></record_update>]]></payload>
-        <payload_hash>2136033182</payload_hash>
-        <record_name>Multiform Child.Apply to</record_name>
-        <reverted_from/>
-        <source>b875a0331b0010108a8a631d274bcbbc</source>
-        <source_table>sys_upgrade_history</source_table>
-        <state>previous</state>
-        <sys_created_by/>
-        <sys_created_on>2020-04-15 01:30:26</sys_created_on>
-        <sys_id>7f8111f31b4810108a8a631d274bcba6</sys_id>
-        <sys_mod_count/>
-        <sys_recorded_at>1717b756f500000000</sys_recorded_at>
-        <sys_updated_by/>
-        <sys_updated_on/>
-        <type>Choice list</type>
-        <update_guid>3f8111f3e94810106582fcee404acca6</update_guid>
-        <update_guid_history>3f8111f3e94810106582fcee404acca6:2136033182</update_guid_history>
-    </sys_update_version>
-    <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete/>
-        <sys_class_name>sys_metadata_delete</sys_class_name>
-        <sys_created_by>dylan.lindgren</sys_created_by>
-        <sys_created_on>2020-04-15 04:43:09</sys_created_on>
-        <sys_db_object display_value="" name="sys_choice_set">sys_choice_set</sys_db_object>
-        <sys_id>ed815db31b4810108a8a631d274bcb37</sys_id>
-        <sys_metadata>ed815db31b4810108a8a631d274bcb37</sys_metadata>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>apply_to</sys_name>
-        <sys_package display_value="Multiform" source="x_pisn_multiform">991a021fdb29d300d19b468b3a9619b4</sys_package>
-        <sys_parent/>
-        <sys_policy/>
-        <sys_scope display_value="Multiform">991a021fdb29d300d19b468b3a9619b4</sys_scope>
-        <sys_scope_delete display_value="">7773a1c2f86b42c0b88182099692e104</sys_scope_delete>
-        <sys_update_name>sys_choice_x_pisn_multiform_child_apply_to</sys_update_name>
-        <sys_update_version display_value="sys_choice_x_pisn_multiform_child_apply_to">7f8111f31b4810108a8a631d274bcba6</sys_update_version>
-        <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2020-04-15 04:43:09</sys_updated_on>
-    </sys_metadata_delete>
 </record_update>
