@@ -19,7 +19,7 @@
         <element default="auto" label="Flex basis" mandatory="true" max_length="10" name="flex_basis" type="string"/>
         <element default="0" label="Flex grow" mandatory="true" max_length="40" name="flex_grow" type="integer"/>
         <element default="1" label="Flex shrink" mandatory="true" max_length="40" name="flex_shrink" type="integer"/>
-        <element label="Form section" max_length="32" name="form_section" reference="sys_ui_form_section" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Form section" max_length="32" name="form_section" reference="sys_ui_section" type="reference"/>
         <element choice="3" default="bottom" label="Location" mandatory="true" max_length="40" name="location" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Bottom" value="bottom"/>
